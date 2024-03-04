@@ -102,12 +102,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
         </ul>
       </div>
     </header>
@@ -151,10 +151,10 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="cin-cout"><a class="markdownIt-Anchor" href="#cin-cout">#</a> cin &amp; cout</h3>
-<p>cin read until a whitespace but not consume it. it’s still in the buffer.</p>
+    <h3 id="cin-cout"><a href="#cin-cout" class="headerlink" title="cin &amp; cout"></a>cin &amp; cout</h3><p>cin read until a whitespace but not consume it. it’s still in the buffer.</p>
 <p>when the buffer has no left, the program prompt the user for input.(cin)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">badWelcome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	string name, response;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;what is your name? &quot;</span>;</span><br><span class="line">	cin &gt;&gt; name;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;what is your age?&quot;</span>;</span><br><span class="line">	cin &gt;&gt; age;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;hello &quot;</span> &lt;&lt; name &lt;&lt; <span class="string">&quot; (age &quot;</span> &lt;&lt; age &lt;&lt; <span class="string">&quot;)&quot;</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Do you want to try again? &quot;</span>;</span><br><span class="line">	cin &gt;&gt; response;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;You said: &quot;</span> &lt;&lt; response &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">badWelcome</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">what is your name? hubin ez</span></span><br><span class="line"><span class="comment">what is your age? hello hubin (age 0)</span></span><br><span class="line"><span class="comment">Do you want to try again? You said:</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
 <p>when cin want to read an int interger, it failed and fail bit is on, so cannot read others</p>
 <p>why cin with &gt;&gt; is a nightmare?</p>
 <ul>
@@ -162,10 +162,9 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <li>Trash in the buffer will make cin not prompt the user  for input at the right time</li>
 <li>When cin fails, all future cin operations fall too.</li>
 </ul>
-<p><code>getline(cin, name)</code>  instead of  <code>cin &gt;&gt; name</code>  can read the entire line. getline reads up to the next newline character.</p>
-<h3 id="modern-c-types"><a class="markdownIt-Anchor" href="#modern-c-types">#</a> modern c++ types</h3>
-<p>lamada function</p>
-<p><code>auto func = [](auto i) &#123;return i*2&#125;;</code></p>
+<p><code>getline(cin, name)</code> instead of <code>cin &gt;&gt; name</code> can read the entire line. getline reads up to the next newline character.</p>
+<h3 id="modern-c-types"><a href="#modern-c-types" class="headerlink" title="modern c++ types"></a>modern c++ types</h3><p>lamada function</p>
+<p><code>auto func = [](auto i) &#123;return i*2&#125;;</code> </p>
 <p>when to use auto?</p>
 <ul>
 <li>when you don’t care what the type is( iterators)</li>
@@ -173,8 +172,8 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <li>when yoiu don’t know what the type is (lambda)</li>
 <li>don’t use it unnecessarily for return types</li>
 </ul>
-<p>pair/tuple functions</p>
-<p><img data-src="C:%5CUsers%5CAdministrator%5CDesktop%5Cphoto%5C9.jpg" alt=""></p>
+<p>pair&#x2F;tuple functions</p>
+<p><img data-src="C:\Users\Administrator\Desktop\photo\9.jpg"></p>
 
       <div class="tags">
           <a href="/tags/CS106L/" rel="tag"><i class="ic i-tag"></i> CS106L</a>
@@ -276,7 +275,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#cin-cout"><span class="toc-number">1.</span> <span class="toc-text"> cin &amp; cout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modern-c-types"><span class="toc-number">2.</span> <span class="toc-text"> modern c++ types</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#cin-cout"><span class="toc-number">1.</span> <span class="toc-text">cin &amp; cout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modern-c-types"><span class="toc-number">2.</span> <span class="toc-text">modern c++ types</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -352,43 +351,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Part2-2-Streams/" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/12/15/CS106L_Classes/" title="CS106L Classes">CS106L Classes</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
   </li>
 
       
@@ -406,7 +369,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
+    <span><a href="/2023/12/15/CS106L_Classes/" title="CS106L Classes">CS106L Classes</a></span>
   </li>
 
       
@@ -416,6 +379,42 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 </div>
 
     <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/CS106L-Part2-2-Streams/" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
   </li>
 
   </ul>

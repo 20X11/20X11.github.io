@@ -144,8 +144,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="cs106l-part22-streams"><a class="markdownIt-Anchor" href="#cs106l-part22-streams">#</a> CS106L Part2.2 Streams</h1>
-<p>##what a stream is</p>
+    <h1 id="CS106L-Part2-2-Streams"><a href="#CS106L-Part2-2-Streams" class="headerlink" title="CS106L Part2.2 Streams"></a>CS106L Part2.2 Streams</h1><p>##what a stream is</p>
 <p>be able to interact with external devices (console 2 keyboard)</p>
 <p>write files</p>
 <p>program 2 program (pipelines) (CS 110)</p>
@@ -154,42 +153,45 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <p>not tied to anything , only does conversion itself</p>
 <p>construct a string stream (input &amp; output)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">std::ostringstream <span class="title">oss</span><span class="params">(<span class="string">&quot;miss asteria&quot;</span>)</span></span>; <span class="comment">// create a stream and inside its buffer already contains characters</span></span><br><span class="line">	std::cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; std::endl; <span class="comment">// miss asteria  </span></span><br><span class="line">                                         <span class="comment">// convert the buffer back to the string</span></span><br><span class="line">                                         <span class="comment">// cout is also a stream, they own different buffer</span></span><br><span class="line">	oss &lt;&lt; <span class="string">&quot;zhaohaoyi&quot;</span>;</span><br><span class="line">	std::cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; std::endl; <span class="comment">// zhaohaoyiria</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>you can change the position point starts at the end</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">std::ostringstream <span class="title">oss</span><span class="params">(<span class="string">&quot;miss asteria&quot;</span>, std::ostringstream::ate)</span></span>;</span><br><span class="line">	std::cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; std::endl; <span class="comment">// miss asteria</span></span><br><span class="line">	oss &lt;&lt; <span class="string">&quot;zhaohaoyi&quot;</span>;</span><br><span class="line">	std::cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; std::endl; <span class="comment">// miss asteriazhaohaoyi</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>now it’s an input stream</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">std::istringstream <span class="title">iss</span><span class="params">(<span class="string">&quot;16.9 Ounces&quot;</span>)</span></span>;</span><br><span class="line">	<span class="type">double</span> amount;</span><br><span class="line">	std::string unit;</span><br><span class="line">	iss &gt;&gt; amount;</span><br><span class="line">	iss &gt;&gt; unit;</span><br><span class="line">	std::cout &lt;&lt; amount &lt;&lt; std::endl &lt;&lt; unit &lt;&lt; std::endl; <span class="comment">/* 16.9</span></span><br><span class="line"><span class="comment">    													  Ounces */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>stream can auto convert data type</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">std::istringstream <span class="title">iss</span><span class="params">(<span class="string">&quot;16.9 Ounces&quot;</span>)</span></span>;</span><br><span class="line">	<span class="type">int</span> amount;</span><br><span class="line">	std::string unit;</span><br><span class="line">	iss &gt;&gt; amount;</span><br><span class="line">	iss &gt;&gt; unit;</span><br><span class="line">	std::cout &lt;&lt; amount &lt;&lt; std::endl &lt;&lt; unit &lt;&lt; std::endl; <span class="comment">/* 16</span></span><br><span class="line"><span class="comment">    													  .9 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>when reading a string , dilimeter is a space key.</p>
 <p>when you want to define dilimeter by yourself:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">istringstream <span class="title">iss1</span><span class="params">(<span class="string">&quot;16 9 Oun ces&quot;</span>)</span>, <span class="title">iss2</span><span class="params">(<span class="string">&quot;16.9.Oun.ces&quot;</span>)</span></span>;</span><br><span class="line">	string word;</span><br><span class="line">	<span class="keyword">while</span> (iss1 &gt;&gt; word) &#123;</span><br><span class="line">		cout &lt;&lt; word &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">getline</span>(iss2, word, <span class="string">&#x27;.&#x27;</span>)) &#123;</span><br><span class="line">		cout &lt;&lt; word &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>&gt;&gt;</code>  extracts the next variable of a certain type,up to the next whitespace;</p>
-<p>The  <code>&gt;&gt;</code>   and  <code>&lt;&lt;</code>  operators return a reference to the stream itself, so in each instance the stream is the left-hand operand.</p>
-<h3 id="stream-positioning-functions"><a class="markdownIt-Anchor" href="#stream-positioning-functions">#</a> stream positioning functions</h3>
-<p><img data-src="C:%5CUsers%5CAdministrator%5CDesktop%5Cphoto%5C5.jpg" alt="5"></p>
+
+<p><code>&gt;&gt;</code> extracts the next variable of a certain type,up to the next whitespace;</p>
+<p>The <code>&gt;&gt;</code>  and <code>&lt;&lt;</code> operators return a reference to the stream itself, so in each instance the stream is the left-hand operand.</p>
+<h3 id="stream-positioning-functions"><a href="#stream-positioning-functions" class="headerlink" title="stream positioning functions"></a>stream positioning functions</h3><p><img data-src="C:\Users\Administrator\Desktop\photo\5.jpg" alt="5"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">ostringstream <span class="title">oss</span><span class="params">(<span class="string">&quot;I miss you,asteria&quot;</span>)</span></span>;</span><br><span class="line">	streampos i = oss.<span class="built_in">tellp</span>();</span><br><span class="line">	cout &lt;&lt; i &lt;&lt; endl; <span class="comment">// 0</span></span><br><span class="line">	oss &lt;&lt; <span class="string">&quot;dfd&quot;</span>;</span><br><span class="line">	i = oss.<span class="built_in">tellp</span>();</span><br><span class="line">	cout &lt;&lt; i &lt;&lt; endl &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; endl; <span class="comment">// 3</span></span><br><span class="line">	oss &lt;&lt; <span class="string">&quot;fsggg&quot;</span>;</span><br><span class="line">	i = oss.<span class="built_in">tellp</span>();</span><br><span class="line">	cout &lt;&lt; i &lt;&lt; endl &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; endl; <span class="comment">// 8</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
 <p>and iss.tellg() is also this function</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">ostringstream <span class="title">oss</span><span class="params">(<span class="string">&quot;I miss you,asteria&quot;</span>)</span></span>;</span><br><span class="line">	oss.<span class="built_in">seekp</span>(<span class="number">1</span>);</span><br><span class="line">	oss &lt;&lt; <span class="string">&quot;dfd&quot;</span>;</span><br><span class="line">	cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; endl; <span class="comment">// Idfdss you,asteria</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>easy function</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">stringToInteger</span><span class="params">(<span class="type">const</span> string &amp;s)</span> </span>&#123;</span><br><span class="line">	<span class="function">istringstream <span class="title">iss</span><span class="params">(s)</span></span>;</span><br><span class="line">	<span class="type">int</span> result;</span><br><span class="line">	iss &gt;&gt; result;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="four-bits-indicate-the-state-of-the-stream"><a class="markdownIt-Anchor" href="#four-bits-indicate-the-state-of-the-stream">#</a> four bits indicate the state of the stream</h3>
-<ul>
-<li>
-<p>Good bit : ready for read/write</p>
+
+<h3 id="four-bits-indicate-the-state-of-the-stream"><a href="#four-bits-indicate-the-state-of-the-stream" class="headerlink" title="four bits indicate the state of the stream"></a>four bits indicate the state of the stream</h3><ul>
+<li><p>Good bit : ready for read&#x2F;write</p>
 </li>
-<li>
-<p>Fail bit : previous operation  failed, all future operations frozen.</p>
+<li><p>Fail bit : previous operation  failed, all future operations frozen.</p>
 </li>
-<li>
-<p>EOF bit : previous operation reached the end of buffer content.</p>
+<li><p>EOF bit : previous operation reached the end of buffer content.</p>
 </li>
-<li>
-<p>Bad bit : external error, likely irrecoverable.</p>
-<p><img data-src="C:%5CUsers%5CAdministrator%5CDesktop%5Cphoto%5C7.jpg" alt="7"></p>
+<li><p>Bad bit : external error, likely irrecoverable.</p>
+<p><img data-src="C:\Users\Administrator\Desktop\photo\7.jpg" alt="7"></p>
 </li>
 </ul>
-<p><img data-src="C:%5CUsers%5CAdministrator%5CDesktop%5Cphoto%5C8.jpg" alt="8"></p>
+<p><img data-src="C:\Users\Administrator\Desktop\photo\8.jpg" alt="8"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printStatebits</span><span class="params">(<span class="type">const</span> istream&amp; iss)</span> </span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;State bits: &quot;</span>;</span><br><span class="line">	cout &lt;&lt; (iss.<span class="built_in">good</span>() ? <span class="string">&quot;G&quot;</span> : <span class="string">&quot;-&quot;</span>);</span><br><span class="line">	cout &lt;&lt; (iss.<span class="built_in">fail</span>() ? <span class="string">&quot;F&quot;</span> : <span class="string">&quot;-&quot;</span>);</span><br><span class="line">	cout &lt;&lt; (iss.<span class="built_in">eof</span>() ? <span class="string">&quot;E&quot;</span> : <span class="string">&quot;-&quot;</span>);</span><br><span class="line">	cout &lt;&lt; (iss.<span class="built_in">bad</span>() ? <span class="string">&quot;B&quot;</span> : <span class="string">&quot;-&quot;</span>);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">stringToInteger</span><span class="params">(<span class="type">const</span> string &amp;s)</span> </span>&#123;</span><br><span class="line">	<span class="function">istringstream <span class="title">iss</span><span class="params">(s)</span></span>;</span><br><span class="line">	<span class="built_in">printStatebits</span>(iss);</span><br><span class="line">	<span class="type">int</span> result;</span><br><span class="line">	iss &gt;&gt; result;</span><br><span class="line">	<span class="built_in">printStatebits</span>(iss);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	cin &gt;&gt; s;</span><br><span class="line">	<span class="built_in">stringToInteger</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* result</span></span><br><span class="line"><span class="comment">1. s = &quot;100&quot;</span></span><br><span class="line"><span class="comment">State bits: G---</span></span><br><span class="line"><span class="comment">State bits: --E-</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">2. s = &quot;a&quot;</span></span><br><span class="line"><span class="comment">State bits: G---</span></span><br><span class="line"><span class="comment">State bits: -F--</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">3. s = &quot;\n&quot;</span></span><br><span class="line"><span class="comment">State bits: G---</span></span><br><span class="line"><span class="comment">State bits: -FE-</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">4. s = &quot;8.&quot;</span></span><br><span class="line"><span class="comment">State bits: G---</span></span><br><span class="line"><span class="comment">State bits: G---</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
 <p>(print bits)</p>
 
       <div class="tags">
@@ -260,7 +262,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
     <div class="item left">
       
 
-  <a href="/2023/12/15/CS106L_Classes/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclj61ylzj20zk0m8b29.jpg" title="CS106L Classes">
+  <a href="/2023/12/15/CS106L_Classes/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesrnqv3j20zk0m8ava.jpg" title="CS106L Classes">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>CS106L Classes</h3>
@@ -270,7 +272,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
     <div class="item right">
       
 
-  <a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevo9j1jj20zk0m8e81.jpg" title="CS106L Types and Advanced Streams">
+  <a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciryrr3rj20zk0m8nhk.jpg" title="CS106L Types and Advanced Streams">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>CS106L Types and Advanced Streams</h3>
@@ -292,7 +294,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cs106l-part22-streams"><span class="toc-number">1.</span> <span class="toc-text"> CS106L Part2.2 Streams</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stream-positioning-functions"><span class="toc-number">1.0.1.</span> <span class="toc-text"> stream positioning functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#four-bits-indicate-the-state-of-the-stream"><span class="toc-number">1.0.2.</span> <span class="toc-text"> four bits indicate the state of the stream</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS106L-Part2-2-Streams"><span class="toc-number">1.</span> <span class="toc-text">CS106L Part2.2 Streams</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stream-positioning-functions"><span class="toc-number">1.0.1.</span> <span class="toc-text">stream positioning functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#four-bits-indicate-the-state-of-the-stream"><span class="toc-number">1.0.2.</span> <span class="toc-text">four bits indicate the state of the stream</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -377,7 +379,16 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
+    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -395,15 +406,6 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/12/15/CS106L-Part2-2-Streams/" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
   </li>
 
@@ -413,7 +415,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
+    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
   </li>
 
       
@@ -431,7 +433,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
   </li>
 
   </ul>

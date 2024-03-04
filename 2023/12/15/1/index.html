@@ -102,12 +102,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
         </ul>
       </div>
     </header>
@@ -151,45 +151,33 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>51 单片机 +  <code>keil </code>  + C 语言 实现拍照，保存图片，显示图片等功能</p>
-<h2 id="c51"><a class="markdownIt-Anchor" href="#c51">#</a> C51</h2>
-<ul>
-<li>
-<p>特殊寄存器的声明 ： <code>sfr P0 = 0x80</code></p>
+    <p>51单片机 + <code>keil </code> + C语言 实现拍照，保存图片，显示图片等功能</p>
+<h2 id="C51"><a href="#C51" class="headerlink" title="C51"></a>C51</h2><ul>
+<li><p>特殊寄存器的声明 ：<code>sfr P0 = 0x80</code></p>
 </li>
-<li>
-<p>特殊寄存器的特定位的声明：  <code>sbit IT0 = TCON ^ 0</code></p>
+<li><p>特殊寄存器的特定位的声明： <code>sbit IT0 = TCON ^ 0</code></p>
 </li>
 </ul>
-<h3 id="延时"><a class="markdownIt-Anchor" href="#延时">#</a> 延时</h3>
-<ul>
-<li>
-<p>非精确延时</p>
+<h3 id="延时"><a href="#延时" class="headerlink" title="延时"></a>延时</h3><ul>
+<li><p>非精确延时</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++);</span><br><span class="line"></span><br><span class="line">i = <span class="number">100</span>; <span class="keyword">while</span>(i--)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>精确延时</p>
-<p>利用库函数 <code>_nop()_</code>  , 需要  <code>#include&lt;intrins.h&gt;</code>  头文件，NOP 是一个单周期指令，可以延时一个机器周期</p>
+<li><p>精确延时</p>
+<p>利用库函数<code>_nop()_</code> , 需要 <code>#include&lt;intrins.h&gt;</code> 头文件,  NOP 是一个单周期指令，可以延时一个机器周期</p>
 <p>或者使用定时器</p>
 </li>
 </ul>
-<h3 id="位操作"><a class="markdownIt-Anchor" href="#位操作">#</a> 位操作</h3>
-<ul>
-<li>
-<p><code>|</code>  用于置 1    <code>P0 = P0  | 0x0F //低4位置1</code></p>
+<h3 id="位操作"><a href="#位操作" class="headerlink" title="位操作"></a>位操作</h3><ul>
+<li><p><code>|</code> 用于置1   <code>P0 = P0  | 0x0F //低4位置1</code></p>
 </li>
-<li>
-<p><code>&amp;</code>  用于置 0    <code>P0 = P0 &amp; 0xFE //最低位清0</code></p>
+<li><p><code>&amp;</code> 用于置0   <code>P0 = P0 &amp; 0xFE //最低位清0</code> </p>
 </li>
-<li>
-<p><code>~</code>  用于取反</p>
+<li><p><code>~</code> 用于取反</p>
 </li>
-<li>
-<p><code>&lt;&lt;</code>    <code>&gt;&gt;</code>    左移 （最低位补 0）/ 右移 （最高位补 0）</p>
+<li><p><code>&lt;&lt;</code>  <code>&gt;&gt;</code>   左移 （最低位补0）&#x2F; 右移 （最高位补0）</p>
 </li>
 </ul>
-<h3 id="c51关键字"><a class="markdownIt-Anchor" href="#c51关键字">#</a> C51 关键字</h3>
-<table>
+<h3 id="C51关键字"><a href="#C51关键字" class="headerlink" title="C51关键字"></a>C51关键字</h3><table>
     <thead>
         <tr>
             <th>关键字</th>
@@ -280,6 +268,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
         </tr>
     </tbody>
 </table>
+
 <table>
     <thead>
         <tr>
@@ -373,92 +362,89 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
             <td>2</td>
             <td>0~65535</td>
         </tr>
+
 <pre><code>&lt;/tbody&gt;
 </code></pre>
 </table>
-<p>可以用缩写来替代 ：  <code>typedef unsigned char uint8</code></p>
+
+<p>可以用缩写来替代 ： <code>typedef unsigned char uint8</code></p>
 <p><code>typedef unsigned int uint16</code></p>
-<h3 id="存储区"><a class="markdownIt-Anchor" href="#存储区">#</a> 存储区</h3>
-<h4 id="data"><a class="markdownIt-Anchor" href="#data">#</a> data</h4>
-<p>固定指前面 0x00~0x7F 的 128 个 RAM，可以用 ACC 直接读写，速度最快，生成的代码也最小。 变量默认为 data 型</p>
-<h4 id="bdata"><a class="markdownIt-Anchor" href="#bdata">#</a> bdata</h4>
-<p>指被分配在 20H~2FH 的 16B 的存储位置，可以位寻址</p>
-<h4 id="idata"><a class="markdownIt-Anchor" href="#idata">#</a> idata</h4>
-<p>固定指前面 0x00~0xFF 的 256 个 RAM， 其中前 128 个和 data 的 128 完全相同，只是访问的方式不同。</p>
-<h4 id="pdata"><a class="markdownIt-Anchor" href="#pdata">#</a> pdata</h4>
-<p>将被分配在片外数据存储器低 266B 中，编译成  <code>MOVX A, R0</code>  这类方式进行访问</p>
-<h4 id="xdata"><a class="markdownIt-Anchor" href="#xdata">#</a> xdata</h4>
-<p>外部扩展 RAM， 一般指外部 0x0000~0xFFFF 空间，用 DPTR 访问</p>
-<h4 id="code"><a class="markdownIt-Anchor" href="#code">#</a> code</h4>
-<p>ROM，写入后不能再更改<br>
- code 型数据表示存储于程序存储器中的常数，可以是数据表格，字库等掉电后还需要保存的数据，通常以数组的形式定义</p>
-<h3 id="变量定义方法"><a class="markdownIt-Anchor" href="#变量定义方法">#</a> 变量定义方法</h3>
-<p>[存储种类] <strong>+</strong> 数据类型 <strong>+</strong> [存储器类型] <strong>+</strong> 变量名表 <strong>+</strong> [_at_常量表达式]</p>
+<h3 id="存储区"><a href="#存储区" class="headerlink" title="存储区"></a>存储区</h3><h4 id="data"><a href="#data" class="headerlink" title="data"></a>data</h4><p>固定指前面 0x00~0x7F 的128个RAM，可以用ACC直接读写，速度最快，生成的代码也最小。 变量默认为data型</p>
+<h4 id="bdata"><a href="#bdata" class="headerlink" title="bdata"></a>bdata</h4><p>指被分配在 20H~2FH 的16B的存储位置，可以位寻址</p>
+<h4 id="idata"><a href="#idata" class="headerlink" title="idata"></a>idata</h4><p>固定指前面 0x00~0xFF 的256个RAM， 其中前128个和data的128完全相同，只是访问的方式不同。</p>
+<h4 id="pdata"><a href="#pdata" class="headerlink" title="pdata"></a>pdata</h4><p>将被分配在片外数据存储器低266B中，编译成 <code>MOVX A, R0</code> 这类方式进行访问</p>
+<h4 id="xdata"><a href="#xdata" class="headerlink" title="xdata"></a>xdata</h4><p>外部扩展RAM， 一般指外部0x0000~0xFFFF空间，用 DPTR 访问</p>
+<h4 id="code"><a href="#code" class="headerlink" title="code"></a>code</h4><p>ROM，写入后不能再更改<br>code型数据表示存储于程序存储器中的常数，可以是数据表格，字库等掉电后还需要保存的数据，通常以数组的形式定义</p>
+<h3 id="变量定义方法"><a href="#变量定义方法" class="headerlink" title="变量定义方法"></a>变量定义方法</h3><p>[存储种类] <strong>+</strong> 数据类型 <strong>+</strong> [存储器类型] <strong>+</strong> 变量名表 <strong>+</strong> [_at_常量表达式]</p>
 <p><code>uchar xdata tmp[10]</code></p>
-<p><code>uchar xdata * data pstr</code>  : 在 RAM 区分配一个指针变量，指针本身指向 xdata 区</p>
-<h3 id="常量定义方法"><a class="markdownIt-Anchor" href="#常量定义方法">#</a> 常量定义方法</h3>
-<ul>
-<li>
-<p>宏定义：  <code>#define False 0</code></p>
+<p><code>uchar xdata * data pstr</code> : 在RAM区分配一个指针变量，指针本身指向 xdata 区</p>
+<h3 id="常量定义方法"><a href="#常量定义方法" class="headerlink" title="常量定义方法"></a>常量定义方法</h3><ul>
+<li><p>宏定义： <code>#define False 0</code></p>
 </li>
-<li>
-<p>用 <code>const</code>  和  <code>code</code>  来定义 ：</p>
-<p><code>unsigned int code a = 100</code>  用存储类型 code 把 a 定义在程序存储器中并赋值<br>
- <code>const unsigned int c = 100</code>  用 const 定义 c 为无符号 int 常量并赋值</p>
+<li><p>用<code>const</code> 和 <code>code</code> 来定义 ： </p>
+<p><code>unsigned int code a = 100</code> 用存储类型code把a定义在程序存储器中并赋值<br><code>const unsigned int c = 100</code> 用const定义c为无符号int常量并赋值</p>
 <p><code>unsigned char code x[] = &#123;0x00, 0x01, 0x02&#125;;</code></p>
 </li>
 </ul>
-<h3 id="关键字volatile"><a class="markdownIt-Anchor" href="#关键字volatile">#</a> 关键字 volatile</h3>
-<p>表示可以被某些编译器未知的因素更改</p>
+<h3 id="关键字volatile"><a href="#关键字volatile" class="headerlink" title="关键字volatile"></a>关键字volatile</h3><p>表示可以被某些编译器未知的因素更改</p>
 <p>对于单片机， volatile 变量可能用于如下几种情况：</p>
 <ul>
 <li>并行设备的硬件寄存器（如：状态寄存器）</li>
 <li>一个中断服务支持下中会访问到的非自动变量（即全局变量）</li>
 <li>多线程应用中被几个任务共享的变量</li>
 </ul>
-<h3 id="中断服务程序isr"><a class="markdownIt-Anchor" href="#中断服务程序isr">#</a> 中断服务程序 ISR</h3>
-<p>当中断发生时， C51 编译器提供一个调用 c 函数的方法，这可以使用户可以使用 c 创建中断服务程序</p>
+<h3 id="中断服务程序ISR"><a href="#中断服务程序ISR" class="headerlink" title="中断服务程序ISR"></a>中断服务程序ISR</h3><p>当中断发生时， C51编译器提供一个调用c函数的方法，这可以使用户可以使用c创建中断服务程序</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> interruptCnt;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> second;</span><br><span class="line"><span class="type">void</span> <span class="title function_">timer0</span><span class="params">(<span class="type">void</span>)</span> interrupt 1 &#123;</span><br><span class="line">	<span class="keyword">if</span> (++interruptCnt == <span class="number">4000</span>) &#123;</span><br><span class="line">		second++;</span><br><span class="line">		interruptCnt = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 keil C 中常用的中断函数说明</p>
+
+<p>在keil C中常用的中断函数说明</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Int0_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 0;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Timer_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 1;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Int1_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 2;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Timer1_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 3;</span><br><span class="line"><span class="type">void</span> <span class="title function_">UART_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 4;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ADC_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 5;</span><br><span class="line"><span class="type">void</span> <span class="title function_">LVD_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 6;</span><br><span class="line"><span class="type">void</span> <span class="title function_">PCA_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 7;</span><br><span class="line"><span class="type">void</span> <span class="title function_">UART2_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 8;</span><br><span class="line"><span class="type">void</span> <span class="title function_">SPI_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 9;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Int2_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 10;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Int3_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 11;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Timer2_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 12;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Int4_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 16;</span><br><span class="line"><span class="type">void</span> <span class="title function_">S3_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 17;</span><br><span class="line"><span class="type">void</span> <span class="title function_">S4_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 18;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Timer3_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 19;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Timer4_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 20;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Comparator_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 21;</span><br><span class="line"><span class="type">void</span> <span class="title function_">PWM_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 22;</span><br><span class="line"><span class="type">void</span> <span class="title function_">PWMFD_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 23;</span><br></pre></td></tr></table></figure>
-<p>在进入中断函数时，特殊功能寄存器 ACC， B， DPTR， PSW 将被保存入栈</p>
+
+<p>在进入中断函数时，特殊功能寄存器ACC， B， DPTR， PSW将被保存入栈</p>
 <p>如果不使用寄存组切换，则将中断函数中所用到的全部工作寄存器都入栈</p>
 <p><code>void function() interrupt n [using m];</code></p>
-<p><code>using m</code>  可以指定中断函数所使用的寄存器组。中断响应时，默认的工作寄存器组就不会进入堆栈，节省时间。 缺点：所有被中断调用的函数都必须使用同一个寄存器组，否则参数传递会发生错误</p>
+<p><code>using m</code> 可以指定中断函数所使用的寄存器组。中断响应时，默认的工作寄存器组就不会进入堆栈，节省时间。 缺点：所有被中断调用的函数都必须使用同一个寄存器组，否则参数传递会发生错误</p>
 <p>函数返回前，所有的寄存器内容出栈。</p>
-<p>ISR 不能进行参数传递，没有返回值。在任何情况下都不能直接调用 ISR</p>
-<p>如果中断函数中用到了浮点运算，必须保存浮点寄存器的状态，可以使用  <code>math.h</code>  中的保存浮点寄存器的  <code>fpsave</code>  和恢复浮点寄存器的  <code>fprestore</code></p>
+<p>ISR不能进行参数传递，没有返回值。在任何情况下都不能直接调用ISR</p>
+<p>如果中断函数中用到了浮点运算，必须保存浮点寄存器的状态，可以使用 <code>math.h</code> 中的保存浮点寄存器的 <code>fpsave</code> 和恢复浮点寄存器的 <code>fprestore</code></p>
 <p>如果在中断函数中调用了其他函数，则被调用函数所使用的寄存器组必须与中断函数相同</p>
 <p>基于队列的中断处理方式</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存放中断的队列</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagIntQueue</span> &#123;</span></span><br><span class="line">	<span class="type">int</span> intType; <span class="comment">// 中断类型</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">tagIntQueue</span> * <span class="title">next</span>;</span></span><br><span class="line">&#125; IntQueue;</span><br><span class="line">IntQueue LpIntQueueHead;</span><br><span class="line">__interrupt <span class="title function_">ISR_example</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">int</span> intType;</span><br><span class="line">	intType = GetSystemType();</span><br><span class="line">	QueueAddTail(LpIntQueueHead, intType) <span class="comment">//在队列尾加入新的中断</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在主程序循环中判断是否有中断</span></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span>(!IsIntQueueEmpty()) &#123;</span><br><span class="line">		intType = GetFirstInt();</span><br><span class="line">		<span class="keyword">switch</span> (intType) &#123;</span><br><span class="line">			<span class="keyword">case</span> xxx:</span><br><span class="line">				... <span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> xxx:</span><br><span class="line">				... <span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <p>下面来看看我现在要搞的这个项目吧</p>
-<h3 id="实验一-p35口led灯控制"><a class="markdownIt-Anchor" href="#实验一-p35口led灯控制">#</a> 实验一  P3.5 口 led 灯控制</h3>
-<p>用来测试 P3.5 点亮 LED 的效果</p>
-<h3 id="实验二-tft_gui-图形显示和触摸屏控制"><a class="markdownIt-Anchor" href="#实验二-tft_gui-图形显示和触摸屏控制">#</a> 实验二 TFT_GUI 图形显示和触摸屏控制</h3>
-<h4 id="tft-lcd-显示屏"><a class="markdownIt-Anchor" href="#tft-lcd-显示屏">#</a> TFT-LCD 显示屏</h4>
-<p>TFT-LCD 是有源矩阵类型液晶，每个像素是在像素电极和共同电极间夹一层液晶（相当于一个电容）LCD 背部的发光管可以” 主动 “对屏幕上各个独立像素进行控制</p>
-<p>TFT 的色彩饱和度，还原能力和对比度较好，但耗电大，成本较高</p>
+<h3 id="实验一-P3-5口led灯控制"><a href="#实验一-P3-5口led灯控制" class="headerlink" title="实验一  P3.5口led灯控制"></a>实验一  P3.5口led灯控制</h3><p>用来测试 P3.5 点亮LED 的效果</p>
+<h3 id="实验二-TFT-GUI-图形显示和触摸屏控制"><a href="#实验二-TFT-GUI-图形显示和触摸屏控制" class="headerlink" title="实验二 TFT_GUI 图形显示和触摸屏控制"></a>实验二 TFT_GUI 图形显示和触摸屏控制</h3><h4 id="TFT-LCD-显示屏"><a href="#TFT-LCD-显示屏" class="headerlink" title="TFT-LCD 显示屏"></a>TFT-LCD 显示屏</h4><p>TFT-LCD是有源矩阵类型液晶，每个像素是在像素电极和共同电极间夹一层液晶（相当于一个电容）LCD背部的发光管可以”主动“对屏幕上各个独立像素进行控制</p>
+<p>TFT的色彩饱和度，还原能力和对比度较好，但耗电大，成本较高</p>
 <p>不能由单片机直接驱动，需要专用芯片控制</p>
-<p>本实验所用 TFT 分辨率 320x240， 支持 RGB365 彩色显示</p>
-<p>TFT-LCD 通过 ILI9325 驱动芯片与单片机连接。CPU 通过读写 ILI9325 的寄存器和片内显示 RAM 来实现对液晶的访问控制</p>
+<p>本实验所用TFT分辨率 320x240， 支持RGB365彩色显示</p>
+<p>TFT-LCD通过ILI9325驱动芯片与单片机连接。CPU通过读写ILI9325的寄存器和片内显示RAM来实现对液晶的访问控制</p>
 <ul>
-<li>
-<p>TFT.c   :    TFT_LCD 驱动函数</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Lcd_Init</span><span class="params">(<span class="type">void</span>)</span> <span class="comment">// 初始化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Lcd_WR_Reg</span><span class="params">(u16 Data)</span> <span class="comment">// 发送命令</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Lcd_Write_Data</span><span class="params">(u16 Data)</span> <span class="comment">// 发送数据</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Lcd_WriteReg</span><span class="params">(u16 com, u16 val)</span> </span><br><span class="line"><span class="type">void</span> <span class="title function_">Address_set</span><span class="params">(u16 x1, u16 y1, u16 x2, u16 y2)</span></span><br><span class="line">u16 <span class="title function_">LCD_readpoint</span><span class="params">(u16 x, u16 y)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">LCD_SetCursor</span><span class="params">(u16 Xpos, u16 Ypos)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">LCD_scan</span><span class="params">(u8 mode)</span> <span class="comment">// 设定显示的扫描方向</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-</li>
+<li><p>TFT.c   :    TFT_LCD 驱动函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Lcd_Init</span><span class="params">(<span class="type">void</span>)</span> <span class="comment">// 初始化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Lcd_WR_Reg</span><span class="params">(u16 Data)</span> <span class="comment">// 发送命令</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Lcd_Write_Data</span><span class="params">(u16 Data)</span> <span class="comment">// 发送数据</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Lcd_WriteReg</span><span class="params">(u16 com, u16 val)</span> </span><br><span class="line"><span class="type">void</span> <span class="title function_">Address_set</span><span class="params">(u16 x1, u16 y1, u16 x2, u16 y2)</span></span><br><span class="line">u16 <span class="title function_">LCD_readpoint</span><span class="params">(u16 x, u16 y)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">LCD_SetCursor</span><span class="params">(u16 Xpos, u16 Ypos)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">LCD_scan</span><span class="params">(u8 mode)</span> <span class="comment">// 设定显示的扫描方向</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LCD_CS : LCD片选信号</span><br><span class="line">LCD_WR : LCD写信号</span><br><span class="line">LCD_RD : LCD读信号</span><br><span class="line">DB[<span class="number">15</span> : <span class="number">0</span>] : <span class="number">16</span>位双向数据线</span><br><span class="line">LCD_RST：硬复位LCD信号</span><br><span class="line">LCD_RS : 命令/数据标志 (<span class="number">0</span>命令<span class="number">1</span>标志)</span><br><span class="line">BL_CTR : 背光控制信号</span><br><span class="line">T_MISO/T_MOSI/T_PEN/T_CS/T_CLK 触摸屏接口信号</span><br></pre></td></tr></table></figure>
-<p>我们来看一看一个 TFT.c 的源码</p>
+
+<p>我们来看一看一个TFT.c 的源码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stc15f2k60s2.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tft.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;delay.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;def.h&quot;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">LCD_Writ_Bus</span><span class="params">(u8 VH, u8 VL)</span> &#123;</span><br><span class="line">	LCD_DataPortH = VH;</span><br><span class="line">	LCD_DataPortL = VL;</span><br><span class="line">	LCD_WR = <span class="number">0</span>;</span><br><span class="line">	LCD_WR = <span class="number">1</span>;</span><br><span class="line">&#125; <span class="comment">//并行数据写入函数</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">LCD_WR_Reg</span><span class="params">(u16 Data)</span> &#123;</span><br><span class="line">	LCD_RS = <span class="number">0</span>;</span><br><span class="line">	LCD_Writ_Bus(Data &gt;&gt; <span class="number">8</span>, Data);</span><br><span class="line">&#125; <span class="comment">// 发送命令</span></span><br></pre></td></tr></table></figure>
-<p>因为只能 8 位的写入，将 16 位的 Data 分开写入</p>
+
+<p>因为只能8位的写入，将16位的Data分开写入</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Lcd_Write_Data</span><span class="params">(u16 Data)</span> &#123;</span><br><span class="line">	LCD_RS = <span class="number">1</span>;</span><br><span class="line">	LCD_Writ_Bus(Data &gt;&gt; <span class="number">8</span>, Data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 发送数据</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">LCD_WriteReg</span><span class="params">(u16 com, u16 val)</span> &#123;</span><br><span class="line">	LCD_WR_Reg(com);</span><br><span class="line">	LCD_Write_Data(val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 写寄存器， com 要写入的命令， val 要写入的数据</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Address_set</span><span class="params">(u16 x1, u16 y1, u16 x2, u16 y2)</span> &#123;</span><br><span class="line">	Lcd_WR_Reg(<span class="number">0X2A</span>);</span><br><span class="line">    Lcd_Write_Data(x1 &gt;&gt; <span class="number">8</span>);</span><br><span class="line">    Lcd_Write_Data(x1);</span><br><span class="line">    Lcd_Write_Data(x2 &gt;&gt; <span class="number">8</span>);</span><br><span class="line">    Lcd_Write_Data(x2);</span><br><span class="line">    </span><br><span class="line">    Lcd_WR_Reg(<span class="number">0X2B</span>);</span><br><span class="line">    Lcd_Write_Data(y1 &gt;&gt; <span class="number">8</span>);</span><br><span class="line">    Lcd_Write_Data(y1);</span><br><span class="line">    Lcd_Write_Data(y2 &gt;&gt; <span class="number">8</span>);</span><br><span class="line">    Lcd_Write_Data(y2);</span><br><span class="line">    </span><br><span class="line">    Lcd_WR_Reg(<span class="number">0X2B</span>) <span class="comment">// 开始写入GRAM</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">设置坐标范围</span></span><br><span class="line"><span class="comment">x1 y1 初始位置</span></span><br><span class="line"><span class="comment">x2 y2 结束位置</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="电阻触摸屏"><a class="markdownIt-Anchor" href="#电阻触摸屏">#</a> 电阻触摸屏</h3>
-<p>是一种传感器，它将矩形区域中触摸点（X，Y）的物理位置转换为代表 X 坐标和 Y 坐标的电压。</p>
-<p>实验中采用了基于 XPT2046 触摸屏控制的 4 线制芯片，采用 SPI 总线与 CPU 连接，分辨率 4096 x 4096</p>
+
+
+
+<h3 id="电阻触摸屏"><a href="#电阻触摸屏" class="headerlink" title="电阻触摸屏"></a>电阻触摸屏</h3><p>是一种传感器，它将矩形区域中触摸点（X，Y）的物理位置转换为代表X坐标和Y坐标的电压。</p>
+<p>实验中采用了基于 XPT2046触摸屏控制的4线制芯片，采用SPI总线与CPU连接，分辨率4096 x 4096</p>
 
       <div class="tags">
           <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag"><i class="ic i-tag"></i> 嵌入式</a>
@@ -552,7 +538,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#c51"><span class="toc-number">1.</span> <span class="toc-text"> C51</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6"><span class="toc-number">1.1.</span> <span class="toc-text"> 延时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text"> 位操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c51%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.3.</span> <span class="toc-text"> C51 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%8C%BA"><span class="toc-number">1.4.</span> <span class="toc-text"> 存储区</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data"><span class="toc-number">1.4.1.</span> <span class="toc-text"> data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bdata"><span class="toc-number">1.4.2.</span> <span class="toc-text"> bdata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#idata"><span class="toc-number">1.4.3.</span> <span class="toc-text"> idata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pdata"><span class="toc-number">1.4.4.</span> <span class="toc-text"> pdata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#xdata"><span class="toc-number">1.4.5.</span> <span class="toc-text"> xdata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#code"><span class="toc-number">1.4.6.</span> <span class="toc-text"> code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text"> 变量定义方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.</span> <span class="toc-text"> 常量定义方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97volatile"><span class="toc-number">1.7.</span> <span class="toc-text"> 关键字 volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8Fisr"><span class="toc-number">1.8.</span> <span class="toc-text"> 中断服务程序 ISR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-p35%E5%8F%A3led%E7%81%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.9.</span> <span class="toc-text"> 实验一  P3.5 口 led 灯控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-tft_gui-%E5%9B%BE%E5%BD%A2%E6%98%BE%E7%A4%BA%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">1.10.</span> <span class="toc-text"> 实验二 TFT_GUI 图形显示和触摸屏控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tft-lcd-%E6%98%BE%E7%A4%BA%E5%B1%8F"><span class="toc-number">1.10.1.</span> <span class="toc-text"> TFT-LCD 显示屏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E9%98%BB%E8%A7%A6%E6%91%B8%E5%B1%8F"><span class="toc-number">1.11.</span> <span class="toc-text"> 电阻触摸屏</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C51"><span class="toc-number">1.</span> <span class="toc-text">C51</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6"><span class="toc-number">1.1.</span> <span class="toc-text">延时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">位操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C51%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.3.</span> <span class="toc-text">C51关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%8C%BA"><span class="toc-number">1.4.</span> <span class="toc-text">存储区</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data"><span class="toc-number">1.4.1.</span> <span class="toc-text">data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bdata"><span class="toc-number">1.4.2.</span> <span class="toc-text">bdata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#idata"><span class="toc-number">1.4.3.</span> <span class="toc-text">idata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pdata"><span class="toc-number">1.4.4.</span> <span class="toc-text">pdata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#xdata"><span class="toc-number">1.4.5.</span> <span class="toc-text">xdata</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#code"><span class="toc-number">1.4.6.</span> <span class="toc-text">code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">变量定义方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.</span> <span class="toc-text">常量定义方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97volatile"><span class="toc-number">1.7.</span> <span class="toc-text">关键字volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8FISR"><span class="toc-number">1.8.</span> <span class="toc-text">中断服务程序ISR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-P3-5%E5%8F%A3led%E7%81%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.9.</span> <span class="toc-text">实验一  P3.5口led灯控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-TFT-GUI-%E5%9B%BE%E5%BD%A2%E6%98%BE%E7%A4%BA%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">1.10.</span> <span class="toc-text">实验二 TFT_GUI 图形显示和触摸屏控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TFT-LCD-%E6%98%BE%E7%A4%BA%E5%B1%8F"><span class="toc-number">1.10.1.</span> <span class="toc-text">TFT-LCD 显示屏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E9%98%BB%E8%A7%A6%E6%91%B8%E5%B1%8F"><span class="toc-number">1.11.</span> <span class="toc-text">电阻触摸屏</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -635,6 +621,15 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2023/12/15/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
@@ -653,33 +648,6 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/12/15/CS106L_Classes/" title="CS106L Classes">CS106L Classes</a></span>
   </li>
 
@@ -690,6 +658,24 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 </div>
 
     <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
   </li>
 
   </ul>
