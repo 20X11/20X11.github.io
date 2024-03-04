@@ -27,7 +27,7 @@
   <meta name="keywords" content="CS106L" />
 
 
-<link rel="canonical" href="http://example.com/2023/12/15/CS106L_containers/">
+<link rel="canonical" href="http://example.com/2023/12/d79337a620c1.html">
 
 
 
@@ -102,12 +102,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclize41wj20zk0m87gk.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis081o9j20zk0m8dmr.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
         </ul>
       </div>
     </header>
@@ -136,7 +136,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/15/CS106L_containers/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/d79337a620c1.html">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -151,29 +151,26 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="CS106L-containers"><a href="#CS106L-containers" class="headerlink" title="CS106L containers"></a>CS106L containers</h1><h2 id="Sequence-Containers"><a href="#Sequence-Containers" class="headerlink" title="Sequence Containers"></a>Sequence Containers</h2><p>Provides access to sequences of elements.</p>
+    <h1 id="cs106l-containers"><a class="markdownIt-Anchor" href="#cs106l-containers">#</a> CS106L containers</h1>
+<h2 id="sequence-containers"><a class="markdownIt-Anchor" href="#sequence-containers">#</a> Sequence Containers</h2>
+<p>Provides access to sequences of elements.</p>
 <p>include :</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;T&gt;</span><br><span class="line">std::deque&lt;T&gt;</span><br><span class="line">std::list&lt;T&gt;</span><br><span class="line">std::array&lt;T&gt;</span><br><span class="line">std::forward_list&lt;T&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="std-vector"><a href="#std-vector" class="headerlink" title="std::vector&lt;T&gt;"></a><code>std::vector&lt;T&gt;</code></h3><p>A vector represents a sequence of elements of any type</p>
+<h3 id="stdvectort"><a class="markdownIt-Anchor" href="#stdvectort">#</a>  <code>std::vector&lt;T&gt;</code></h3>
+<p>A vector represents a sequence of elements of any type</p>
 <p>You specify the type when using the vector</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; VecInt; <span class="comment">// vector of ints</span></span><br><span class="line">std::vector&lt;string&gt; vecStr; <span class="comment">//vector of string</span></span><br><span class="line">std::vector&lt;myStruct&gt; vecStruct <span class="comment">// vector of myStructs</span></span><br><span class="line">std::vector&lt;std::vector&lt;string&gt; &gt; vecOfVec; <span class="comment">// vector of vector&lt;string&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>vec.at(i)</code> throws an exception</p>
-<p><code>vec[i]</code> causes undefined behaviour</p>
+<p><code>vec.at(i)</code>  throws an exception</p>
+<p><code>vec[i]</code>  causes undefined behaviour</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; a.<span class="built_in">size</span>(); i++) a.<span class="built_in">at</span>(i) = i;</span><br><span class="line">	cout &lt;&lt; a[<span class="number">4</span>] &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; a.<span class="built_in">at</span>(<span class="number">4</span>) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">0</span></span><br><span class="line"><span class="comment">terminate called after throwing an instance of &#x27;std::out_of_range&#x27;</span></span><br><span class="line"><span class="comment">  what():  vector::_M_range_check: __n (which is 4) &gt;= this-&gt;size() (which is 3)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <p>Deque or vector?</p>
 <p>vector is the type of sequence that should be used by default, deque is the data structure of choice when most insertions and deletions take place at the beginning or at the end of the sequence.</p>
-<h2 id="Container-Adaptors"><a href="#Container-Adaptors" class="headerlink" title="Container Adaptors"></a>Container Adaptors</h2><p>How to implement stack and queue using the containers we have?</p>
-<p><strong>stack</strong> : Just limit the functionality of a vector&#x2F;deque to only allow <code>push_back</code> and <code>pop_back</code></p>
-<p><strong>queue</strong> : Just limit the functionality of a deque to only allow <code>push_back</code> and <code>pop_front</code></p>
+<h2 id="container-adaptors"><a class="markdownIt-Anchor" href="#container-adaptors">#</a> Container Adaptors</h2>
+<p>How to implement stack and queue using the containers we have?</p>
+<p><strong>stack</strong> : Just limit the functionality of a vector/deque to only allow  <code>push_back</code>  and  <code>pop_back</code></p>
+<p><strong>queue</strong> : Just limit the functionality of a deque to only allow  <code>push_back</code>  and  <code>pop_front</code></p>
 <p>for this reason, stack and queue are known as container adaptors. They are just adapt vector and deque.</p>
-<p>Why not just use a vector &#x2F; deque?</p>
+<p>Why not just use a vector / deque?</p>
 <p>Design philosophy of c++:</p>
 <ul>
 <li>Allow the programmer full control, responsbility, and choice if they want it.</li>
@@ -182,19 +179,17 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <li>Do not waste time or space</li>
 <li>Compartmentalize messy constructs.</li>
 </ul>
-<h2 id="Associative-Containers"><a href="#Associative-Containers" class="headerlink" title="Associative Containers"></a>Associative Containers</h2><p>Data is accessed using the key instead of indexes.</p>
+<h2 id="associative-containers"><a class="markdownIt-Anchor" href="#associative-containers">#</a> Associative Containers</h2>
+<p>Data is accessed using the key instead of indexes.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;T1, T2&gt;</span><br><span class="line">std::set&lt;T&gt;</span><br><span class="line">std::unordered _map&lt;T1, T2&gt;</span><br><span class="line">std::unordered_set&lt;T&gt;</span><br></pre></td></tr></table></figure>
-
-<p><code>map</code> &amp; <code>set</code> based on ordering property of keys</p>
+<p><code>map</code>  &amp;  <code>set</code>  based on ordering property of keys</p>
 <p>keys need to be comparable using &lt; (less than) operator</p>
-<p><code>map</code> &amp; <code>set</code> : Keys in sorted order, faster to iterate through a range of elements</p>
-<p><code>unordered_map</code> &amp; <code>unordered_set</code> : faster to access individual elements by key.</p>
+<p><code>map</code>  &amp;  <code>set</code>  : Keys in sorted order, faster to iterate through a range of elements</p>
+<p><code>unordered_map</code>  &amp;  <code>unordered_set</code>  : faster to access individual elements by key.</p>
 <p>multimap</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::multimap&lt;<span class="type">int</span>, <span class="type">int</span>&gt; myMMap;</span><br><span class="line">myMMap.<span class="built_in">insert</span>(<span class="built_in">make_pair</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br><span class="line">myMMap.<span class="built_in">insert</span>(&#123;<span class="number">3</span>, <span class="number">12</span>&#125;);</span><br><span class="line">cout &lt;&lt; myMMap.<span class="built_in">count</span>(<span class="number">3</span>) &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Iterators"><a href="#Iterators" class="headerlink" title="Iterators"></a>Iterators</h2><p>Iterators allow iteration over any container, whether it is ordered or not</p>
+<h2 id="iterators"><a class="markdownIt-Anchor" href="#iterators">#</a> Iterators</h2>
+<p>Iterators allow iteration over any container, whether it is ordered or not</p>
 <p>Iterators let us view a non-linear collection in a linear manner.</p>
 <p><code>set&lt;int&gt;::iterator iter = mySet.begin();</code></p>
 <p><code>cout &lt;&lt; *iter &lt;&lt; endl;</code></p>
@@ -202,14 +197,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <p><code>std::pair&lt;string, int&gt; p&#123;&quot;Phone number&quot;, 1211&#125;;</code></p>
 <p><code>std::make_pair(&quot;Phone number&quot;, 1211);</code></p>
 <p><strong>Map iterators</strong></p>
-<p>Dereferencing a <code>set&lt;string&gt; </code> iterator gives you a <code>string</code>.</p>
-<p>Dereferencing a <code>map&lt;string, int&gt;</code> iterator gives you an <code>std::pair&lt;string, int&gt;</code>.</p>
+<p>Dereferencing a  <code>set&lt;string&gt; </code>  iterator gives you a  <code>string</code> .</p>
+<p>Dereferencing a  <code>map&lt;string, int&gt;</code>  iterator gives you an  <code>std::pair&lt;string, int&gt;</code> .</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator i = m.<span class="built_in">begin</span>();</span><br><span class="line">map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator end = m.<span class="built_in">end</span>();</span><br><span class="line"><span class="keyword">while</span> (i != end) &#123;</span><br><span class="line">    cout &lt;&lt; (*i).first &lt;&lt; (*i).second &lt;&lt; endl;</span><br><span class="line">    ++i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set&lt;<span class="type">int</span>&gt;::iterator iter = elems.<span class="built_in">lower_bound</span>(<span class="number">4</span>); <span class="comment">// find smallest element &gt;= key</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt;::iterator end = elems.<span class="built_in">upper_bound</span>(<span class="number">6</span>); <span class="comment">// find smallest element &gt; key </span></span><br></pre></td></tr></table></figure>
-
 <p><code>myMap.count(key)</code></p>
-<p><code>std::find(myMap.begin(), myMap.end(), key)</code> is quicker</p>
+<p><code>std::find(myMap.begin(), myMap.end(), key)</code>  is quicker</p>
 
       <div class="tags">
           <a href="/tags/CS106L/" rel="tag"><i class="ic i-tag"></i> CS106L</a>
@@ -260,7 +253,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/12/15/CS106L_containers/" title="CS106L containers">http://example.com/2023/12/15/CS106L_containers/</a>
+    <a href="http://example.com/2023/12/d79337a620c1.html" title="CS106L containers">http://example.com/2023/12/d79337a620c1.html</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -279,7 +272,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
     <div class="item left">
       
 
-  <a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;picst.sunbangyan.cn&#x2F;2023&#x2F;12&#x2F;15&#x2F;c9895d23541ce59312139f6938e892a9.jpeg" title="说在前面">
+  <a href="/2023/12/e6725af79bb1.html" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;picst.sunbangyan.cn&#x2F;2023&#x2F;12&#x2F;15&#x2F;c9895d23541ce59312139f6938e892a9.jpeg" title="说在前面">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>说在前面</h3>
@@ -289,7 +282,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
     <div class="item right">
       
 
-  <a href="/2023/12/15/CS106L_Classes/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicljgocqbj20zk0m8e81.jpg" title="CS106L Classes">
+  <a href="/2023/12/e83861209187.html" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewr8iypj20zk0m8b29.jpg" title="CS106L Classes">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>CS106L Classes</h3>
@@ -311,7 +304,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS106L-containers"><span class="toc-number">1.</span> <span class="toc-text">CS106L containers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sequence-Containers"><span class="toc-number">1.1.</span> <span class="toc-text">Sequence Containers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-vector"><span class="toc-number">1.1.1.</span> <span class="toc-text">std::vector&lt;T&gt;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Container-Adaptors"><span class="toc-number">1.2.</span> <span class="toc-text">Container Adaptors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Associative-Containers"><span class="toc-number">1.3.</span> <span class="toc-text">Associative Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterators"><span class="toc-number">1.4.</span> <span class="toc-text">Iterators</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cs106l-containers"><span class="toc-number">1.</span> <span class="toc-text"> CS106L containers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sequence-containers"><span class="toc-number">1.1.</span> <span class="toc-text"> Sequence Containers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stdvectort"><span class="toc-number">1.1.1.</span> <span class="toc-text">  std::vector&lt;T&gt;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#container-adaptors"><span class="toc-number">1.2.</span> <span class="toc-text"> Container Adaptors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#associative-containers"><span class="toc-number">1.3.</span> <span class="toc-text"> Associative Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iterators"><span class="toc-number">1.4.</span> <span class="toc-text"> Iterators</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -358,12 +351,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/12/e6725af79bb1.html" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/12/15/CS106L_Classes/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/12/e83861209187.html" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -387,7 +380,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
+    <span><a href="/2023/12/f40cbb7a3481.html" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
   </li>
 
       
@@ -396,7 +389,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
+    <span><a href="/2023/12/028187592cf4.html" title="CMOS相机">CMOS相机</a></span>
   </li>
 
       
@@ -405,7 +398,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L_Classes/" title="CS106L Classes">CS106L Classes</a></span>
+    <span><a href="/2023/12/e6725af79bb1.html" title="说在前面">说在前面</a></span>
   </li>
 
       
@@ -414,7 +407,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Part2-2-Streams/" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
+    <span><a href="/2023/12/8799f0f8f68d.html" title="CS106L Templates">CS106L Templates</a></span>
   </li>
 
       
@@ -423,7 +416,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
+    <span><a href="/2023/12/e83861209187.html" title="CS106L Classes">CS106L Classes</a></span>
   </li>
 
       
@@ -432,7 +425,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
+    <span><a href="/2023/12/d79337a620c1.html" title="CS106L containers">CS106L containers</a></span>
   </li>
 
       
@@ -441,7 +434,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
+    <span><a href="/2023/12/dbf32e7856cb.html" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -450,7 +443,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2023/12/5beb6a3f686d.html" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
   </li>
 
   </ul>
@@ -481,7 +474,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2023/12/15/CS106L_containers/',
+    path: '2023/12/d79337a620c1.html',
     favicon: {
       show: "我们也会如此般重逢吗？",
       hide: "分开一千天，天天盼再会面"

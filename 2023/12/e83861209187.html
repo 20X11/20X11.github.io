@@ -27,7 +27,7 @@
   <meta name="keywords" content="CS106L" />
 
 
-<link rel="canonical" href="http://example.com/2023/12/15/CS106L_Classes/">
+<link rel="canonical" href="http://example.com/2023/12/e83861209187.html">
 
 
 
@@ -102,12 +102,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
         </ul>
       </div>
     </header>
@@ -136,7 +136,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/15/CS106L_Classes/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/e83861209187.html">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -151,73 +151,72 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="CS106L-Classes"><a href="#CS106L-Classes" class="headerlink" title="CS106L Classes"></a>CS106L Classes</h1><p>header file: <code>.h, .hh, .hpp</code></p>
-<p>source file: <code>.cc, .cpp, .cxx, .c++, .C</code></p>
+    <h1 id="cs106l-classes"><a class="markdownIt-Anchor" href="#cs106l-classes">#</a> CS106L Classes</h1>
+<p>header file:  <code>.h, .hh, .hpp</code></p>
+<p>source file:  <code>.cc, .cpp, .cxx, .c++, .C</code></p>
 <p>it’s depend on the compiler</p>
 <p>Historically, used .C</p>
 <p>Now, Unix mostly uses .cc, and outside Unix mostly uses .cpp</p>
 <p>.h is technically for C programs, so if mixing C and C++ code, use .hh instead</p>
-<h3 id="Constructors"><a href="#Constructors" class="headerlink" title="Constructors"></a>Constructors</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ClassName::<span class="built_in">ClassName</span>(parameters) &#123;</span><br><span class="line">	statements to initalize the object;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="constructors"><a class="markdownIt-Anchor" href="#constructors">#</a> Constructors</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ClassName::<span class="built_in">ClassName</span>(parameters) &#123;</span><br><span class="line">	statements to initalize the object;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>constructor: initialize state of new objects as they are created.</p>
 <p>no return type is specified, implicitly returns the new object.</p>
-<h3 id="Destructors"><a href="#Destructors" class="headerlink" title="Destructors"></a>Destructors</h3><p>called when the object is deleted by the program.</p>
+<h3 id="destructors"><a class="markdownIt-Anchor" href="#destructors">#</a> Destructors</h3>
+<p>called when the object is deleted by the program.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~<span class="built_in">ClassName</span>(); <span class="comment">// ClassName.h</span></span><br><span class="line"></span><br><span class="line">ClassName::~<span class="built_in">ClassName</span>() &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Const-keywords"><a href="#Const-keywords" class="headerlink" title="Const keywords"></a>Const keywords</h3><p>The keyword const : just like a const reference parameter can’t be modified by the function.</p>
+<h3 id="const-keywords"><a class="markdownIt-Anchor" href="#const-keywords">#</a> Const keywords</h3>
+<p>The keyword const : just like a const reference parameter can’t be modified by the function.</p>
 <p><code>void foo (const BankAccount &amp;ba)</code></p>
 <p>A const member function can’t change the object’s  state</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BankAccount</span> &#123;</span><br><span class="line">	<span class="function"><span class="type">double</span> <span class="title">getBalance</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>const member function &amp; unconst member function</p>
 <p><code>void foo (const Object&amp; input)</code></p>
 <p><code>void bar(Object&amp; input)</code></p>
 <p>The const Model</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Planet</span> &#123;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">countPopulation</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">deathStar</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">evil</span><span class="params">(<span class="type">const</span> Planet &amp;p)</span> </span>&#123;</span><br><span class="line">	cout &lt;&lt; p.<span class="built_in">countPopulation</span>() &lt;&lt; endl; <span class="comment">// OK: countPopulation is const</span></span><br><span class="line">	p.<span class="built_in">deathStar</span>(); <span class="comment">// Not ok: deathStar isn&#x27;t const</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>A const Pointer</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// constant pointer to a non-constant int</span></span><br><span class="line"><span class="type">int</span> * <span class="type">const</span> p; <span class="comment">//  (*p)++ ok!</span></span><br><span class="line">			   <span class="comment">// p++ Not ok!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//non-constant pointer to a constant int</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* p;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span>* p</span><br><span class="line">    </span><br><span class="line"><span class="comment">// constant pointer to a constant int</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* <span class="type">const</span> p;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span>* <span class="type">const</span> p;</span><br></pre></td></tr></table></figure>
-
 <p>**const iterators **</p>
 <p>Remember that iterators act like pointers</p>
-<p><code>const vector&lt;int&gt;::iterator itr</code> however, acts like <code>int * const itr</code></p>
+<p><code>const vector&lt;int&gt;::iterator itr</code>  however, acts like  <code>int * const itr</code></p>
 <p>To make an iterator read only, define a new const_iterator</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> vector&lt;<span class="type">int</span>&gt;::iterator itr = v.<span class="built_in">begin</span>();</span><br><span class="line">*itr = <span class="number">15</span> <span class="comment">// √</span></span><br><span class="line">++itr;    <span class="comment">// ×</span></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::const_iterator itr = v.<span class="built_in">begin</span>();</span><br><span class="line">*itr = <span class="number">5</span>;          <span class="comment">// x</span></span><br><span class="line">++itr              <span class="comment">// √</span></span><br><span class="line"><span class="type">int</span> value = *itr;  <span class="comment">// √</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>summary</strong></p>
 <ul>
 <li><strong>const on objects</strong> : Guarantee that the object won’t change by allowing you to call you only const functions and treating all public members as if they were const. This helps the programmer write safe code, and also give the compiler more information to use to optimize.</li>
 <li><strong>const on functions</strong> : Guarantees that the function won’t call anything but const functions, and won’t modify any non-static, non-mutable members.</li>
 </ul>
-<h2 id="operators"><a href="#operators" class="headerlink" title="operators"></a>operators</h2><p> Arithmetic : <code>+ - * / %  += -= *=  /= %=</code></p>
-<p>Bitwise <code>&amp; | ~ !</code></p>
-<p>Relational <code>== != &lt; &gt; &lt;= &gt;= &lt;=&gt;</code></p>
-<p>Stream <code>&lt;&lt; &gt;&gt; &lt;&lt;= &gt;&gt;=</code></p>
-<p>Logical <code>&amp;&amp; || ^ &amp;= |= ^=</code></p>
-<p>Increment <code>++ --</code></p>
-<p>Memory <code>-&gt; -&gt;* new new [] delete delete[]</code></p>
-<p>Misc <code>() [] , =  co_await</code></p>
+<h2 id="operators"><a class="markdownIt-Anchor" href="#operators">#</a> operators</h2>
+<p>Arithmetic :  <code>+ - * / %  += -= *=  /= %=</code></p>
+<p>Bitwise  <code>&amp; | ~ !</code></p>
+<p>Relational  <code>== != &lt; &gt; &lt;= &gt;= &lt;=&gt;</code></p>
+<p>Stream  <code>&lt;&lt; &gt;&gt; &lt;&lt;= &gt;&gt;=</code></p>
+<p>Logical  <code>&amp;&amp; || ^ &amp;= |= ^=</code></p>
+<p>Increment  <code>++ --</code></p>
+<p>Memory  <code>-&gt; -&gt;* new new [] delete delete[]</code></p>
+<p>Misc  <code>() [] , =  co_await</code></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; v&#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;World&quot;</span>&#125;;</span><br><span class="line">cout &lt;&lt; v[<span class="number">0</span>];</span><br><span class="line">v[<span class="number">1</span>] += <span class="string">&quot;!&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//c++ tries to call these functions</span></span><br><span class="line"></span><br><span class="line">vector&lt;string&gt; v&#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;World&quot;</span>&#125;;</span><br><span class="line">cout.<span class="keyword">operator</span>&lt;&lt;(v.<span class="keyword">operator</span>[](<span class="number">0</span>));</span><br><span class="line">v.<span class="keyword">operator</span>[](<span class="number">1</span>).<span class="keyword">operator</span>+=(<span class="string">&quot;!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or these ones</span></span><br><span class="line">vector&lt;string&gt;v&#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;World&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">operator</span>&lt;&lt;(cout, v.<span class="keyword">operator</span>[](<span class="number">0</span>));</span><br><span class="line"><span class="keyword">operator</span>+=(<span class="keyword">operator</span>[](v, <span class="number">1</span>), <span class="string">&quot;!&quot;</span>);</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; s, <span class="type">const</span> string&amp; val) &#123;&#125;</span><br><span class="line">string&amp; vector&lt;string&gt;::<span class="keyword">operator</span>[](<span class="type">size_t</span> index) <span class="type">const</span>&#123;&#125;</span><br><span class="line">string&amp; <span class="keyword">operator</span>+=(string&amp; lhs, <span class="type">const</span> string&amp; rhs) &#123;&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[some <span class="keyword">return</span> value] vector&lt;string&gt;::<span class="keyword">operator</span>+= ([some type] element) &#123;</span><br><span class="line">    <span class="built_in">push_back</span>(element);</span><br><span class="line">    <span class="keyword">return</span> [something?];</span><br><span class="line">&#125;</span><br><span class="line">[some <span class="keyword">return</span> value] vector&lt;string&gt;::<span class="keyword">operator</span>+= ([some type] other) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> val : other) <span class="built_in">push_back</span>(val);</span><br><span class="line">    <span class="keyword">return</span> [something?];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt;&amp; vector&lt;string&gt;::<span class="keyword">operator</span>+=(<span class="type">const</span> <span class="type">int</span>&amp; element) &#123;</span><br><span class="line">    <span class="built_in">push_back</span>(element);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vector&lt;string&gt;&amp; vector&lt;string&gt;::<span class="keyword">operator</span>+=(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; other) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> val : other) <span class="built_in">push_back</span>(val);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>&#123;</span><br><span class="line">	<span class="type">int</span> x, y;</span><br><span class="line">	<span class="keyword">public</span> :</span><br><span class="line">		<span class="built_in">Point</span> (<span class="type">int</span> x1 = <span class="number">0</span>, <span class="type">int</span> y1 = <span class="number">0</span>) : <span class="built_in">x</span>(x1), <span class="built_in">y</span>(y1) &#123;&#125;</span><br><span class="line">		<span class="keyword">friend</span> istream &amp; <span class="keyword">operator</span>&gt;&gt;(istream &amp; input, Point &amp; obj);</span><br><span class="line">		<span class="keyword">friend</span> ostream &amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp; output, Point &amp;obj);</span><br><span class="line">&#125;;</span><br><span class="line">istream &amp; <span class="keyword">operator</span> &gt;&gt; (istream &amp; input, Point &amp; obj) &#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Input x, y, of the point:\n&quot;</span>;</span><br><span class="line">	input &gt;&gt; obj.x &gt;&gt; obj.y;</span><br><span class="line">	<span class="keyword">return</span> input;</span><br><span class="line">&#125;</span><br><span class="line">ostream &amp; <span class="keyword">operator</span> &lt;&lt; (ostream &amp; output, Point &amp;obj) &#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Output x, y of the point:&quot;</span>;</span><br><span class="line">	output &lt;&lt; <span class="string">&quot;x=&quot;</span> &lt;&lt; obj.x &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; <span class="string">&quot;y=&quot;</span> &lt;&lt; obj.y &lt;&lt; <span class="string">&quot;\n&quot;</span>; </span><br><span class="line">	<span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	Point obj1, obj2;</span><br><span class="line">	cin &gt;&gt; obj1 &gt;&gt; obj2;</span><br><span class="line">	cout &lt;&lt; obj1 &lt;&lt; obj2;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Input x, y, of the point:</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment">Input x, y, of the point:</span></span><br><span class="line"><span class="comment">3 4</span></span><br><span class="line"><span class="comment">Output x, y of the point:x=1, y=2</span></span><br><span class="line"><span class="comment">Output x, y of the point:x=3, y=4</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>Some operators must be implemented as members (eg. [], () -&gt;, &#x3D;) due to C++ semantics</p>
+<p>Some operators must be implemented as members (eg. [], () -&gt;, =) due to C++ semantics</p>
 <p>Some must be implemented as non-members (eg. &lt;&lt; ) if you are writingb</p>
-<h3 id="special-member-functions"><a href="#special-member-functions" class="headerlink" title="special member functions"></a>special member functions</h3><ul>
-<li><p>Default construction: object created with no parameters</p>
+<h3 id="special-member-functions"><a class="markdownIt-Anchor" href="#special-member-functions">#</a> special member functions</h3>
+<ul>
+<li>
+<p>Default construction: object created with no parameters</p>
 </li>
-<li><p>Copy construction: object is created as a copy of an existing object</p>
+<li>
+<p>Copy construction: object is created as a copy of an existing object</p>
 </li>
-<li><p>Copy assignment : existing object replaced as a copy of another existing object</p>
+<li>
+<p>Copy assignment : existing object replaced as a copy of another existing object</p>
 </li>
-<li><p>Destruction :object destroyed when it’s out of scope</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>
+<p>Destruction :object destroyed when it’s out of scope</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
       <div class="tags">
@@ -269,7 +268,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/12/15/CS106L_Classes/" title="CS106L Classes">http://example.com/2023/12/15/CS106L_Classes/</a>
+    <a href="http://example.com/2023/12/e83861209187.html" title="CS106L Classes">http://example.com/2023/12/e83861209187.html</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -288,7 +287,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
     <div class="item left">
       
 
-  <a href="/2023/12/15/CS106L_containers/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4wqtg4j20zk0m8x6p.jpg" title="CS106L containers">
+  <a href="/2023/12/d79337a620c1.html" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeyvx1d4j20zk0m8hdt.jpg" title="CS106L containers">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>CS106L containers</h3>
@@ -298,7 +297,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
     <div class="item right">
       
 
-  <a href="/2023/12/15/CS106L-Part2-2-Streams/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picdm.sunbangyan.cn&#x2F;2023&#x2F;12&#x2F;15&#x2F;0791e6dc12d1c2d2b8ee6d0617143120.jpeg" title="CS106L Part2.2 Streams">
+  <a href="/2023/12/5beb6a3f686d.html" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picdm.sunbangyan.cn&#x2F;2023&#x2F;12&#x2F;15&#x2F;0791e6dc12d1c2d2b8ee6d0617143120.jpeg" title="CS106L Part2.2 Streams">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>CS106L Part2.2 Streams</h3>
@@ -320,7 +319,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CS106L-Classes"><span class="toc-number">1.</span> <span class="toc-text">CS106L Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructors"><span class="toc-number">1.0.1.</span> <span class="toc-text">Constructors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Destructors"><span class="toc-number">1.0.2.</span> <span class="toc-text">Destructors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Const-keywords"><span class="toc-number">1.0.3.</span> <span class="toc-text">Const keywords</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#operators"><span class="toc-number">1.1.</span> <span class="toc-text">operators</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#special-member-functions"><span class="toc-number">1.1.1.</span> <span class="toc-text">special member functions</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cs106l-classes"><span class="toc-number">1.</span> <span class="toc-text"> CS106L Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#constructors"><span class="toc-number">1.0.1.</span> <span class="toc-text"> Constructors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#destructors"><span class="toc-number">1.0.2.</span> <span class="toc-text"> Destructors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const-keywords"><span class="toc-number">1.0.3.</span> <span class="toc-text"> Const keywords</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#operators"><span class="toc-number">1.1.</span> <span class="toc-text"> operators</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#special-member-functions"><span class="toc-number">1.1.1.</span> <span class="toc-text"> special member functions</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -367,12 +366,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/12/15/CS106L_containers/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/12/d79337a620c1.html" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/12/15/CS106L-Part2-2-Streams/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/12/5beb6a3f686d.html" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -396,7 +395,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
+    <span><a href="/2023/12/f40cbb7a3481.html" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
   </li>
 
       
@@ -405,7 +404,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2023/12/028187592cf4.html" title="CMOS相机">CMOS相机</a></span>
   </li>
 
       
@@ -414,7 +413,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
+    <span><a href="/2023/12/e6725af79bb1.html" title="说在前面">说在前面</a></span>
   </li>
 
       
@@ -423,7 +422,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
+    <span><a href="/2023/12/e83861209187.html" title="CS106L Classes">CS106L Classes</a></span>
   </li>
 
       
@@ -432,7 +431,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L_Classes/" title="CS106L Classes">CS106L Classes</a></span>
+    <span><a href="/2023/12/dbf32e7856cb.html" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -441,7 +440,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
+    <span><a href="/2023/12/5beb6a3f686d.html" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
   </li>
 
       
@@ -450,7 +449,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Part2-2-Streams/" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
+    <span><a href="/2023/12/8799f0f8f68d.html" title="CS106L Templates">CS106L Templates</a></span>
   </li>
 
       
@@ -459,7 +458,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
+    <span><a href="/2023/12/d79337a620c1.html" title="CS106L containers">CS106L containers</a></span>
   </li>
 
   </ul>
@@ -490,7 +489,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2023/12/15/CS106L_Classes/',
+    path: '2023/12/e83861209187.html',
     favicon: {
       show: "我们也会如此般重逢吗？",
       hide: "分开一千天，天天盼再会面"

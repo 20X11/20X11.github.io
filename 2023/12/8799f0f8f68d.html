@@ -27,12 +27,12 @@
   <meta name="keywords" content="CS106L" />
 
 
-<link rel="canonical" href="http://example.com/2023/12/15/CS106L-Types-and-Advanced-Streams/">
+<link rel="canonical" href="http://example.com/2023/12/8799f0f8f68d.html">
 
 
 
   <title>
-CS106L Types and Advanced Streams |
+CS106L Templates |
 misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <meta name="generator" content="Hexo 7.0.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,16 +60,16 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">CS106L Types and Advanced Streams
+  <h1 itemprop="name headline">CS106L Templates
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-12-15 22:45:12">
+  <span class="item" title="创建时间：2023-12-15 22:46:11">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-12-15T22:45:12+08:00">2023-12-15</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-15T22:46:11+08:00">2023-12-15</time>
   </span>
 </div>
 
@@ -101,14 +101,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 
       </div>
       <div id="imgs" class="pjax">
-        <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
-        </ul>
+          <img src="https://picst.sunbangyan.cn/2023/12/15/ca2cb29dbc1eb20740958d53899a230d.jpeg">
       </div>
     </header>
     <div id="waves">
@@ -136,7 +129,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/15/CS106L-Types-and-Advanced-Streams/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/8799f0f8f68d.html">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -151,29 +144,20 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="cin-cout"><a href="#cin-cout" class="headerlink" title="cin &amp; cout"></a>cin &amp; cout</h3><p>cin read until a whitespace but not consume it. it’s still in the buffer.</p>
-<p>when the buffer has no left, the program prompt the user for input.(cin)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">badWelcome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	string name, response;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;what is your name? &quot;</span>;</span><br><span class="line">	cin &gt;&gt; name;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;what is your age?&quot;</span>;</span><br><span class="line">	cin &gt;&gt; age;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;hello &quot;</span> &lt;&lt; name &lt;&lt; <span class="string">&quot; (age &quot;</span> &lt;&lt; age &lt;&lt; <span class="string">&quot;)&quot;</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Do you want to try again? &quot;</span>;</span><br><span class="line">	cin &gt;&gt; response;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;You said: &quot;</span> &lt;&lt; response &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">badWelcome</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">what is your name? hubin ez</span></span><br><span class="line"><span class="comment">what is your age? hello hubin (age 0)</span></span><br><span class="line"><span class="comment">Do you want to try again? You said:</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>when cin want to read an int interger, it failed and fail bit is on, so cannot read others</p>
-<p>why cin with &gt;&gt; is a nightmare?</p>
-<ul>
-<li>cin reads the entire line into the buffer but extracts whitespace-separated tokens.</li>
-<li>Trash in the buffer will make cin not prompt the user  for input at the right time</li>
-<li>When cin fails, all future cin operations fall too.</li>
-</ul>
-<p><code>getline(cin, name)</code> instead of <code>cin &gt;&gt; name</code> can read the entire line. getline reads up to the next newline character.</p>
-<h3 id="modern-c-types"><a href="#modern-c-types" class="headerlink" title="modern c++ types"></a>modern c++ types</h3><p>lamada function</p>
-<p><code>auto func = [](auto i) &#123;return i*2&#125;;</code> </p>
-<p>when to use auto?</p>
-<ul>
-<li>when you don’t care what the type is( iterators)</li>
-<li>when it’s type is clear from context (templates)</li>
-<li>when yoiu don’t know what the type is (lambda)</li>
-<li>don’t use it unnecessarily for return types</li>
-</ul>
-<p>pair&#x2F;tuple functions</p>
-<p><img data-src="C:\Users\Administrator\Desktop\photo\9.jpg"></p>
+    <h1 id="cs106l-templates"><a class="markdownIt-Anchor" href="#cs106l-templates">#</a> CS106L Templates</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">pair&lt;T, T&gt; <span class="title">my_minmax</span><span class="params">(T a, T b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a &lt; b) <span class="keyword">return</span> &#123;a, b&#125;;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> &#123;b, a&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>explicit instantiation : specify the type T</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> [min1, max1] = <span class="built_in">my_minmax</span>&lt;<span class="type">double</span>&gt;(<span class="number">4.2</span>, <span class="number">-7.9</span>);</span><br><span class="line">    <span class="keyword">auto</span> [min2, max2] = <span class="built_in">my_minmax</span>&lt;string&gt;(<span class="string">&quot;Avery&quot;</span>, <span class="string">&quot;Anna&quot;</span>);</span><br><span class="line">    <span class="keyword">auto</span> [min3, max3] = <span class="built_in">my_minmax</span>&lt;<span class="type">int</span>&gt;(<span class="number">4</span>, <span class="number">7</span>);</span><br><span class="line">    <span class="keyword">auto</span> [min4, max4] = <span class="built_in">my_minmax</span>&lt;<span class="type">double</span>&gt;(<span class="number">2</span>, <span class="number">2.3</span>);</span><br><span class="line">    <span class="keyword">auto</span> [min5, max5] = my_minmax&lt;vector&lt;<span class="type">int</span>&gt;&gt;(<span class="number">1</span>,<span class="number">2</span>&#125;, &#123;<span class="number">3</span>, <span class="number">1</span>&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Inputit, <span class="keyword">typename</span> DataType&gt;</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">count0ccurences</span><span class="params">(Inputit begin, Inputit end, DataType val)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> iter = begin; iter != end; iter++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (*iter == val) ++count;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="lambda"><a class="markdownIt-Anchor" href="#lambda">#</a> lambda</h3>
+<p>anatomy of a lamada function:</p>
+<p><code>auto func = [capture-clause](parameters)&#123;&#125;; </code></p>
+<p><code>auto func = [capture=clause](parameters) -&gt; return-type&#123;&#125;;</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">auto</span> func = [](<span class="type">int</span> x) &#123; <span class="keyword">return</span> x + <span class="number">2</span>;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">auto</span> func2 = [](<span class="type">int</span> x) -&gt; <span class="type">int</span> &#123;<span class="keyword">return</span> x + <span class="number">2</span>;&#125;;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">func2</span>(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>lazy way of capturing variables</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> func1 = [=, &amp;teas](parameters) -&gt; <span class="keyword">return</span>-value&#123;&#125;;</span><br><span class="line"><span class="comment">// capture all by value, except teas is by reference.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> func2 = [&amp;, banned](parameters) -&gt; <span class="keyword">return</span>-value&#123;&#125;;</span><br><span class="line"><span class="comment">//capture all by reference, except banned is by value</span></span><br></pre></td></tr></table></figure>
+<p>capture by reference</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">set&lt;string&gt; teas&#123;<span class="string">&quot;black&quot;</span>, <span class="string">&quot;green&quot;</span>, <span class="string">&quot;oolong&quot;</span>&#125;;</span><br><span class="line">string banned = <span class="string">&quot;boba&quot;</span>;</span><br><span class="line"><span class="keyword">auto</span> likeByAvery = [&amp;teas, banned](<span class="keyword">auto</span> type) &#123;<span class="keyword">return</span> teas.<span class="built_in">count</span>(type) &amp;&amp; type != banned;&#125;;</span><br></pre></td></tr></table></figure>
 
       <div class="tags">
           <a href="/tags/CS106L/" rel="tag"><i class="ic i-tag"></i> CS106L</a>
@@ -188,7 +172,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-12-15 22:46:54" itemprop="dateModified" datetime="2023-12-15T22:46:54+08:00">2023-12-15</time>
+    <time title="修改时间：2023-12-15 22:52:47" itemprop="dateModified" datetime="2023-12-15T22:52:47+08:00">2023-12-15</time>
   </span>
 </div>
 
@@ -224,7 +208,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">http://example.com/2023/12/15/CS106L-Types-and-Advanced-Streams/</a>
+    <a href="http://example.com/2023/12/8799f0f8f68d.html" title="CS106L Templates">http://example.com/2023/12/8799f0f8f68d.html</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -243,20 +227,20 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
     <div class="item left">
       
 
-  <a href="/2023/12/15/CS106L-Part2-2-Streams/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;picdm.sunbangyan.cn&#x2F;2023&#x2F;12&#x2F;15&#x2F;0791e6dc12d1c2d2b8ee6d0617143120.jpeg" title="CS106L Part2.2 Streams">
+  <a href="/2023/12/f40cbb7a3481.html" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm0fdw5cj20zk0m8hdt.jpg" title="CS106L Types and Advanced Streams">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>CS106L Part2.2 Streams</h3>
+  <h3>CS106L Types and Advanced Streams</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/12/15/CS106L-Templates/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picst.sunbangyan.cn&#x2F;2023&#x2F;12&#x2F;15&#x2F;ca2cb29dbc1eb20740958d53899a230d.jpeg" title="CS106L Templates">
+  <a href="/2023/12/028187592cf4.html" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="CMOS相机">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>CS106L Templates</h3>
+  <h3>CMOS相机</h3>
   </a>
 
     </div>
@@ -275,7 +259,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#cin-cout"><span class="toc-number">1.</span> <span class="toc-text">cin &amp; cout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modern-c-types"><span class="toc-number">2.</span> <span class="toc-text">modern c++ types</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cs106l-templates"><span class="toc-number">1.</span> <span class="toc-text"> CS106L Templates</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda"><span class="toc-number">1.0.1.</span> <span class="toc-text"> lambda</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -322,12 +306,12 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/12/15/CS106L-Part2-2-Streams/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/12/f40cbb7a3481.html" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/12/15/CS106L-Templates/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/12/028187592cf4.html" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -351,7 +335,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
+    <span><a href="/2023/12/f40cbb7a3481.html" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
   </li>
 
       
@@ -360,7 +344,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
+    <span><a href="/2023/12/d79337a620c1.html" title="CS106L containers">CS106L containers</a></span>
   </li>
 
       
@@ -369,7 +353,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
+    <span><a href="/2023/12/028187592cf4.html" title="CMOS相机">CMOS相机</a></span>
   </li>
 
       
@@ -378,7 +362,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L_Classes/" title="CS106L Classes">CS106L Classes</a></span>
+    <span><a href="/2023/12/e83861209187.html" title="CS106L Classes">CS106L Classes</a></span>
   </li>
 
       
@@ -387,7 +371,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Part2-2-Streams/" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
+    <span><a href="/2023/12/e6725af79bb1.html" title="说在前面">说在前面</a></span>
   </li>
 
       
@@ -396,7 +380,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
+    <span><a href="/2023/12/5beb6a3f686d.html" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
   </li>
 
       
@@ -405,7 +389,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="说在前面">说在前面</a></span>
+    <span><a href="/2023/12/dbf32e7856cb.html" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -414,7 +398,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2023/12/8799f0f8f68d.html" title="CS106L Templates">CS106L Templates</a></span>
   </li>
 
   </ul>
@@ -445,7 +429,7 @@ misasteria's Shoka = 彷徨旅人之足迹 = 【misasteria】</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2023/12/15/CS106L-Types-and-Advanced-Streams/',
+    path: '2023/12/8799f0f8f68d.html',
     favicon: {
       show: "我们也会如此般重逢吗？",
       hide: "分开一千天，天天盼再会面"
