@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
         </ul>
       </div>
     </header>
@@ -138,6 +138,7 @@
     <div class="excerpt">
         这是一个用 hexo 的 shoka 主题搭建的静态博客。本来准备使用前端 vue + springboot 框架搭建，但是这需要一段时间的学习，因此先用着这个简陋的博客先～
 博主 misasteria , 喜欢 asteria , Yukinoshita Yukino , 目前是一名北京理工大学的光电子专业大三学生。（准备考研润计算机）算是半个 acmer？，希望可以通过这几年的计算机学习为将来准备一些谈判的筹码吧
+# 我的 acm 经历
     </div>
     <a href="/2023/12/15/%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2/" itemprop="url" title="说在前面" class="btn">more...</a>
   </div>
@@ -146,6 +147,48 @@
       </div>
     <h2 class="divider">文章列表</h2>
     <div class="segments posts">
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/12/15/1/" itemprop="url" title="CMOS相机"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-12-15 23:00:55">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-15T23:00:55+08:00">2023-12-15</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/12/15/1/" itemprop="url" title="CMOS相机">CMOS相机</a></h3>
+    <div class="excerpt">
+        51 单片机 + keil + C 语言 实现拍照，保存图片，显示图片等功能
+# C51
+
+特殊寄存器的声明 ： sfr P0 = 0x80
+
+特殊寄存器的特定位的声明： sbit IT0 = TCON ^ 0
+
+# 延时
+
+非精确延时
+1234for (i = 0; i &amp;lt; 100; i++);i = 100; while(i--)
+
+精确延时
+利用库函数 _nop()_ , 需要 #include&amp;lt;intrins.h&amp;gt; 头文件，NOP 是一个单周期指令，可以延时一个机器周期
+或者使用定时器
+
+# 位操作
+
+| 用于置 1 P0 = P0 |...
+    </div>
+    <a href="/2023/12/15/1/" itemprop="url" title="CMOS相机" class="btn">more...</a>
+  </div>
+</article>
+
         
 <article class="item">
   <div class="cover">
@@ -176,7 +219,7 @@ explicit instantiation : specify the type T
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" itemprop="url" title="CS106L Types and Advanced Streams"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></a>
+    <a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" itemprop="url" title="CS106L Types and Advanced Streams"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicm07ih54j20zk0m84qp.jpg"></a>
   </div>
   <div class="info">
     
@@ -235,7 +278,7 @@ construct a string stream (input...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/15/CS106L_Classes/" itemprop="url" title="CS106L Classes"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></a>
+    <a href="/2023/12/15/CS106L_Classes/" itemprop="url" title="CS106L Classes"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></a>
   </div>
   <div class="info">
     
@@ -266,7 +309,7 @@ Now, Unix mostly uses .cc, and outside Unix mostly uses .cpp
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/15/CS106L_containers/" itemprop="url" title="CS106L containers"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></a>
+    <a href="/2023/12/15/CS106L_containers/" itemprop="url" title="CS106L containers"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></a>
   </div>
   <div class="info">
     
@@ -296,7 +339,7 @@ A vector represents a...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/12/15/hello-world/" itemprop="url" title="Hello World"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1giclga70tsj20zk0m84mr.jpg"></a>
+    <a href="/2023/12/15/hello-world/" itemprop="url" title="Hello World"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></a>
   </div>
   <div class="info">
     
@@ -352,19 +395,20 @@ More info: Writing
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">7</span>
+        <span class="count">8</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">1</span>
+        <span class="count">2</span>
         <span class="name">标签</span>
       </a>
     </div>
 </nav>
 
 <div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tLzIwWDEx" title="https:&#x2F;&#x2F;github.com&#x2F;20X11"><i class="ic i-github"></i></span>
 </div>
 
 <ul class="menu">
@@ -409,15 +453,6 @@ More info: Writing
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/12/15/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
@@ -427,16 +462,7 @@ More info: Writing
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
+    <span><a href="/2023/12/15/1/" title="CMOS相机">CMOS相机</a></span>
   </li>
 
       
@@ -454,6 +480,15 @@ More info: Writing
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/12/15/CS106L-Templates/" title="CS106L Templates">CS106L Templates</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2023/12/15/CS106L_Classes/" title="CS106L Classes">CS106L Classes</a></span>
   </li>
 
@@ -463,7 +498,25 @@ More info: Writing
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/12/15/CS106L_containers/" title="CS106L containers">CS106L containers</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2023/12/15/CS106L-Part2-2-Streams/" title="CS106L Part2.2 Streams">CS106L Part2.2 Streams</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/15/CS106L-Types-and-Advanced-Streams/" title="CS106L Types and Advanced Streams">CS106L Types and Advanced Streams</a></span>
   </li>
 
   </ul>
@@ -478,7 +531,7 @@ More info: Writing
   <div class="copyright">
     
     &copy; 2010 – 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="ic i-sakura rotate"></i>
     </span>
