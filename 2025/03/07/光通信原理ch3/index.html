@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            光通信原理ch3 |
         
         misasteria&#39;s blog
     </title>
@@ -191,7 +191,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        Hello World
+                        光通信原理ch3
                     </div>
                 
 
@@ -219,17 +219,26 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-06-17 18:26:18</span>
+                <span class="datetime">2025-03-07 15:18:42</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Jun 17 2024 18:26:18 GMT+0800">2024-06-17 18:26:18</span>
+                <span class="datetime" data-updated="Mon Mar 10 2025 15:40:55 GMT+0800">2025-03-10 15:40:55</span>
             </span>
         
 
         
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%85%89%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">光通信原理</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
@@ -249,35 +258,179 @@
                 <div class="post-content keep-markdown-body ">
                     
 
-                    <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very
-first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or
-you can ask me on <a class="link" 
- target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+                    <h3 id="随机过程的基本概念">随机过程的基本概念</h3>
+<p>随机过程：随时间随机变化的过程，全部样本函数 <span
+class="math inline">\(\xi_i(t)\)</span> 的集合，随机变量 <span
+class="math inline">\(\xi(t_i)\)</span> 的集合</p>
+<p>样本函数 <span class="math inline">\(\xi_i(t)\)</span>：一次实现</p>
+<p>随机变量 <span class="math inline">\(\xi(t_i)\)</span></p>
+<p>从随机变量角度来看 <span
+class="math inline">\(\xi(t_i)=\{\xi_1(t_i),\xi_2(t2),\cdots,\xi_n(t_i)\}\)</span></p>
+<ul>
+<li>统计特性：
+<ul>
+<li>概率分布</li>
+<li>数字特征</li>
+</ul></li>
+<li>时间特性：
+<ul>
+<li>时域</li>
+<li>频域</li>
+</ul></li>
+</ul>
+<p>随机过程的分布函数：</p>
+<ul>
+<li><p>一维分布函数 -- 描述孤立时刻的统计特性</p>
+<p><span class="math inline">\(F_i(x_i,t_i) = P\{\xi(t_i)\leq
+x_i\}\)</span></p>
+<p><span class="math inline">\(f=\frac{\partial F(x_1,t_1)}{\partial
+x_i}\)</span></p></li>
+<li><p>二维分布函数</p>
+<p><span class="math inline">\(F(x_1,x_2,t_1,t_2)\)</span></p></li>
+<li><p>n维分布函数</p></li>
+</ul>
+<h4 id="随机过程的数字特征">随机过程的数字特征</h4>
+<ul>
+<li><p>均值 -- 摆动中心</p>
+<p><span class="math inline">\(E(\xi(t))=\int_{-\infty}^\infty
+xf_1(x,t)dx=a(t)\)</span> 是一个对于 <span
+class="math inline">\(t\)</span> 的确定函数</p></li>
+<li><p>方差 -- 偏离程度</p>
+<p><span
+class="math inline">\(D[\xi(t)]=E\{[\xi(t)-a(t)]^2\}=E[\xi^2(t)]-[a(t)^2]=\sigma^2(t)\)</span></p></li>
+<li><p>自相关函数 -- 同一过程的关联程度</p>
+<p><span
+class="math inline">\(R(t_1,t_2)=E[\xi(t_1)\xi(t_2)]\)</span></p>
+<p>令 <span class="math inline">\(\tau=t_2-t_1\)</span>, 则有 <span
+class="math inline">\(R(t_1,t_2)=R(t_1,t_1+\tau)\)</span></p></li>
+<li><p>互相关函数 -- 两个过程的关联程度</p>
+<p><span class="math inline">\(R_{\xi\eta} =
+E[\xi(t_1)\eta(t_2)]\)</span></p></li>
+</ul>
+<h3 id="平稳随机过程">平稳随机过程</h3>
+<ul>
+<li><p>狭义平稳：</p>
+<p>随机过程的统计特性与时间起点无关</p>
+<ul>
+<li>一维分布与时间 <span class="math inline">\(t\)</span> 无关</li>
+<li>二维分布只与时间间隔 <span class="math inline">\(\tau\)</span>
+有关</li>
+</ul></li>
+<li><p>广义平稳：</p>
+<ul>
+<li>均值与时间无关</li>
+<li>相关函数只与时间间隔有关</li>
+</ul></li>
+</ul>
+<h4 id="各态历经性遍历性">各态历经性（遍历性）</h4>
+<p>统计平均值=时间平均值</p>
+<p>含义：任一样本经历了平稳过程的所有可能状态</p>
+<p>遍历过程一定是平稳过程，平稳过程不一定是遍历过程</p>
+<p><span class="math inline">\(E[g(x)] = \int_{-\infty}^\infty
+g(x)f(x)dx\)</span></p>
+<h4 id="实平稳过程的自相关函数">实平稳过程的自相关函数</h4>
+<p><span class="math inline">\(R(\tau)=E[\xi(t)\xi(t+\tau)]\)</span></p>
+<p>性质：</p>
+<ul>
+<li><p><span class="math inline">\(R(0)=E[\xi^2(t)]=S\)</span>
+--平均功率</p></li>
+<li><p><span class="math inline">\(R(\infty)=E^2[\xi(t)]=a^2\)</span>
+--直流功率 （此时认为 <span class="math inline">\(\xi(t)\)</span> 和
+<span class="math inline">\(\xi(t+\tau)\)</span> 相互独立）</p></li>
+<li><p><span class="math inline">\(R(0)-R(\infty) =\sigma^2\)</span> --
+交流功率</p></li>
+<li><p><span class="math inline">\(R(\tau)=R(-\tau)\)</span>
+--偶函数</p></li>
+<li><p><span class="math inline">\(|R(\tau)|\leq R(0)\)</span>
+--上界</p></li>
+</ul>
+<h4 id="平稳过程的功率谱密度">平稳过程的功率谱密度</h4>
+<ul>
+<li><p>样本的功率谱</p>
+<p><span class="math inline">\(P_x(f)=\lim\limits_{T\to\infty}
+\frac{|X_T(f)|^2}{T}\)</span></p></li>
+<li><p>过程的功率谱</p>
+<p><span
+class="math inline">\(P_\xi(f)=E[p_x(f)]=\lim\limits_{T\to\infty}
+\frac{E|X_T(f)|^2}{T}\)</span></p></li>
+</ul>
+<p>平稳过程的功率谱密度与自相关函数是一对傅里叶变换</p>
+<p><span class="math inline">\(P_\xi(\omega)=\int_{-\infty}^\infty
+R(\tau)e^{-j\omega t}d\tau\)</span></p>
+<p><span class="math inline">\(R(0)=\frac{1}{2\pi}\int_{-\infty}^\infty
+P_\xi(\omega)d\omega=\int_{-\infty}^\infty P_\xi(f)df\)</span></p>
+<p>PSD性质：</p>
+<ul>
+<li><p>遍历过程任一样本的PSD=过程的PSD</p></li>
+<li><p>非负性</p></li>
+<li><p>偶函数</p></li>
+</ul>
+<h3 id="高斯随机过程">高斯随机过程</h3>
+<p>定义：任意n维概率密度函数服从正态分布</p>
+<p>性质：</p>
+<ul>
+<li>若广义平稳，则狭义平稳</li>
+<li>若互不相关，则统计独立</li>
+<li>若干个高斯过程的代数和仍是高斯型</li>
+<li>高斯过程-线性变换-高斯过程</li>
+</ul>
+<p>一维概率密度函数：<span
+class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi\sigma}}exp(-\frac{(x-a)^2}{2\sigma^2})\)</span></p>
+<p>记为 <span class="math inline">\(N(a,\sigma^2)\)</span>
+a分布中心，<span class="math inline">\(\sigma\)</span> 集中程度</p>
+<p>Matlab中 <span class="math inline">\(randn(0,p)\)</span></p>
+<p>性质：</p>
+<ul>
+<li>关于直线 <span class="math inline">\(x=a\)</span> 对称</li>
+<li><span class="math inline">\(\int\)</span></li>
+</ul>
+<h4 id="正态分布">正态分布</h4>
+<p>正态分布函数： <span class="math inline">\(F(b)=P(x\leq
+b)=\int_{-\infty}^b\frac{1}{\sqrt{2\pi
+\sigma}}exp[-\frac{(x-a)^2}{2\sigma^2}]dx\)</span></p>
+<p>误差函数： <span
+class="math inline">\(erf(x)=\frac{2}{\sqrt\pi}\int_0^xe^{-t^2}dt\)</span></p>
+<p>误差函数是自变量的递增函数 <span
+class="math inline">\(erf(0)=0,erf(\infty)=1\)</span></p>
+<p>补误差函数：<span
+class="math inline">\(erfc(x)=\frac{2}{\sqrt\pi}\int_x^{\infty}e^{-t^2}dt\)</span></p>
+<h4 id="高斯随机变量的置信率">高斯随机变量的置信率</h4>
+<h4 id="确知信号通过线性系统">确知信号通过线性系统</h4>
+<p>设 <span
+class="math inline">\(\xi_i(t)\to^{h(t)}\xi_o(t)\)</span></p>
+<p>则 <span
+class="math inline">\(\xi_o(t)=\xi_i(t)*h(t)=\int_{-\infty}^\infty\xi_i(t)h(t-\tau)d\tau\)</span></p>
+<h3 id="噪声">噪声</h3>
+<h4 id="白噪声">白噪声</h4>
+<p>白噪声--理想的宽带过程</p>
+<p>其功率谱密度均匀分布在整个频率范围内 <span
+class="math inline">\(P_\xi(f)=\frac{n_0}{2}, n_0(W/HZ)\)</span></p>
+<p><span
+class="math inline">\(R(\tau)=\frac{n_0}{2}\delta(\tau)\)</span></p>
+<p>平均功率 <span class="math inline">\(R(0)=\infty\)</span>,
+实际不可能出现这种理想噪声</p>
+<h4 id="高斯白噪声">高斯白噪声</h4>
+<p>概率分布服从高斯分布的白噪声</p>
+<h4 id="带限白噪声">带限白噪声</h4>
+<p>白噪声通过带宽有限的信道或滤波器的情形</p>
+<ul>
+<li>通过LPF--低通白噪声</li>
+<li>通过BPF--带通白噪声</li>
+</ul>
 
                 </div>
                 
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%85%89%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">光通信原理</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -293,19 +446,35 @@ you can ask me on <a class="link"
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/06/17/csapp-datalab/"
-                                   title="csapp_datalab"
+                                   href="/2025/03/07/leetcode3-7/"
+                                   title="leetcode3.7"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">csapp_datalab</span>
+                                        <span class="post-nav-title-item text-ellipsis">leetcode3.7</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
                             </div>
                         
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/03/07/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86ch3/"
+                                   title="数字图像处理ch3"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">数字图像处理ch3</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
                         
                     </div>
                 
@@ -327,7 +496,7 @@ you can ask me on <a class="link"
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
         <!-- use hexo-blog-encrypt -->
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">随机过程的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">1.1.</span> <span class="nav-text">随机过程的数字特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A8%B3%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">平稳随机过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%84%E6%80%81%E5%8E%86%E7%BB%8F%E6%80%A7%E9%81%8D%E5%8E%86%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">各态历经性（遍历性）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E5%B9%B3%E7%A8%B3%E8%BF%87%E7%A8%8B%E7%9A%84%E8%87%AA%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">实平稳过程的自相关函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E7%A8%B3%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8A%9F%E7%8E%87%E8%B0%B1%E5%AF%86%E5%BA%A6"><span class="nav-number">2.3.</span> <span class="nav-text">平稳过程的功率谱密度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">高斯随机过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="nav-number">3.1.</span> <span class="nav-text">正态分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E7%BD%AE%E4%BF%A1%E7%8E%87"><span class="nav-number">3.2.</span> <span class="nav-text">高斯随机变量的置信率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E7%9F%A5%E4%BF%A1%E5%8F%B7%E9%80%9A%E8%BF%87%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.3.</span> <span class="nav-text">确知信号通过线性系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%99%AA%E5%A3%B0"><span class="nav-number">4.</span> <span class="nav-text">噪声</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BD%E5%99%AA%E5%A3%B0"><span class="nav-number">4.1.</span> <span class="nav-text">白噪声</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E7%99%BD%E5%99%AA%E5%A3%B0"><span class="nav-number">4.2.</span> <span class="nav-text">高斯白噪声</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A6%E9%99%90%E7%99%BD%E5%99%AA%E5%A3%B0"><span class="nav-number">4.3.</span> <span class="nav-text">带限白噪声</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -481,7 +650,7 @@ you can ask me on <a class="link"
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
         <!-- use hexo-blog-encrypt -->
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">随机过程的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">1.1.</span> <span class="nav-text">随机过程的数字特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A8%B3%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">平稳随机过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%84%E6%80%81%E5%8E%86%E7%BB%8F%E6%80%A7%E9%81%8D%E5%8E%86%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">各态历经性（遍历性）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E5%B9%B3%E7%A8%B3%E8%BF%87%E7%A8%8B%E7%9A%84%E8%87%AA%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">实平稳过程的自相关函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E7%A8%B3%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8A%9F%E7%8E%87%E8%B0%B1%E5%AF%86%E5%BA%A6"><span class="nav-number">2.3.</span> <span class="nav-text">平稳过程的功率谱密度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">高斯随机过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="nav-number">3.1.</span> <span class="nav-text">正态分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E7%BD%AE%E4%BF%A1%E7%8E%87"><span class="nav-number">3.2.</span> <span class="nav-text">高斯随机变量的置信率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E7%9F%A5%E4%BF%A1%E5%8F%B7%E9%80%9A%E8%BF%87%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.3.</span> <span class="nav-text">确知信号通过线性系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%99%AA%E5%A3%B0"><span class="nav-number">4.</span> <span class="nav-text">噪声</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BD%E5%99%AA%E5%A3%B0"><span class="nav-number">4.1.</span> <span class="nav-text">白噪声</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E7%99%BD%E5%99%AA%E5%A3%B0"><span class="nav-number">4.2.</span> <span class="nav-text">高斯白噪声</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A6%E9%99%90%E7%99%BD%E5%99%AA%E5%A3%B0"><span class="nav-number">4.3.</span> <span class="nav-text">带限白噪声</span></a></li></ol></li></ol>
     </div>
 </div>
 

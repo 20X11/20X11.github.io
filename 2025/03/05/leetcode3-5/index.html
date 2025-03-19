@@ -206,7 +206,7 @@
                             <div class="author border-box">
                                 <span class="name">misasteria</span>
                                 
-                                    <span class="author-badge">Lv2</span>
+                                    <span class="author-badge">Lv3</span>
                                 
                             </div>
                             <div class="meta-info border-box">
@@ -224,7 +224,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed Mar 05 2025 23:23:36 GMT+0800">2025-03-05 23:23:36</span>
+                <span class="datetime" data-updated="Thu Mar 06 2025 00:08:21 GMT+0800">2025-03-06 00:08:21</span>
             </span>
         
 
@@ -258,12 +258,20 @@
                 <div class="post-content keep-markdown-body ">
                     
 
-                    <p><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-linked-lists/?envType=study-plan-v2&amp;envId=top-100-liked" >160. 相交链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
+                    <p><a class="link" 
+ target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-linked-lists/?envType=study-plan-v2&amp;envId=top-100-liked" >160.
+相交链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
 <p>用map存一遍链表A中的节点，看链表B中有无相同即可</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;ListNode *, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">while</span> (headA) &#123;</span><br><span class="line">            mp[headA] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (!headA-&gt;next) <span class="keyword">break</span>;</span><br><span class="line">            headA = headA-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (headB) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mp.<span class="built_in">count</span>(headB)) <span class="keyword">return</span> headB;</span><br><span class="line">            <span class="keyword">if</span> (!headB-&gt;next) <span class="keyword">break</span>;</span><br><span class="line">            headB = headB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>双链表的方法比较巧妙，平时没有怎么接触过</p>
 <p>若要同时移动两个指针，当两链表节点数不同时，很显然不可能走到公共节点，不过相应的，如果两个指针在某一刻走到相同后缀数量的节点时，就可以同步移动，找出是否有公共节点。所以可以让指向A链表的指针为NULL时指向B链表的表头，指向B链表的指针为NULL时指向A链表的表头，补偿较少节点数的链表指针，多走一个循环，就可以满足条件。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode *p = headA, *q = headB;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (headA == headB) <span class="keyword">return</span> headA;</span><br><span class="line">            <span class="keyword">if</span> (!headA-&gt;next &amp;&amp; !headB-&gt;next) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">            <span class="keyword">if</span> (!headA-&gt;next) headA = q;</span><br><span class="line">            <span class="keyword">else</span> headA = headA-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (!headB-&gt;next) headB = p;</span><br><span class="line">            <span class="keyword">else</span> headB = headB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><a class="link" 
+ target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list/?envType=study-plan-v2&amp;envId=top-100-liked" >206.
+反转链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
+<p>我一直对于这些需要边界处理的题感到头疼。</p>
+<p>需要讨论一下链表节点为0,1,2个的情况。大于等于3时可以一起处理</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || (!head-&gt;next)) <span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">if</span> (!head-&gt;next-&gt;next) &#123;</span><br><span class="line">            ListNode *p = head, *q = head-&gt;next;</span><br><span class="line">            head-&gt;next-&gt;next = head;</span><br><span class="line">            p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">            <span class="keyword">return</span> q;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *prior = head, *now = head;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">        prior-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(head-&gt;next) &#123;</span><br><span class="line">            now = head;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            now-&gt;next = prior;</span><br><span class="line">            prior = now;</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = prior;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
                 </div>
                 
@@ -289,6 +297,22 @@
 
                 
                     <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/03/07/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86ch3/"
+                                   title="数字图像处理ch3"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">数字图像处理ch3</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
                         
                         
                             <div class="next-post">
@@ -560,20 +584,5 @@
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

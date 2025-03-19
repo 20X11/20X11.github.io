@@ -389,7 +389,127 @@ s^2(t)dt=0\]</span></p></li>
   <entry>
     <title>数据结构ch1</title>
     <url>/2025/03/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84ch1/</url>
-    <content><![CDATA[<h3 id="渐进记号">渐进记号</h3>
+    <content><![CDATA[<p>###Hailstone：</p>
+<p>从任意一个正整数n开始。</p>
+<ul>
+<li><p>如果n是偶数，那么下一个数是n除以2（即n/2）。</p></li>
+<li><p>如果n是奇数，那么下一个数是n乘以3然后加1（即3n+1）。</p></li>
+<li><p>重复这个过程，直到序列中的数达到1。</p></li>
+</ul>
+<p>对于 <span class="math inline">\(hailstone\)</span>
+序列,不确定是否对于所有输入都有穷</p>
+<h3 id="理想硬币">理想硬币</h3>
+<p>rand() 是一个理想的随机整数生成器，生成奇数和偶数的 概率都是50%。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> ( <span class="built_in">rand</span>() &amp; <span class="number">1</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个程序中的循环会一直执行，直到 rand() 生成一个奇数。</p>
+<p>循环的迭代次数是一个随机变量，记为 s。</p>
+<p>循环迭代 k 步的概率 <span class="math inline">\(𝑃𝑟(𝑠=𝑘)\)</span>是前
+<span class="math inline">\(𝑘−1\)</span> 次生成偶数，第 <span
+class="math inline">\(𝑘\)</span> 次生成奇数的概率，即： <span
+class="math inline">\(𝑃𝑟(𝑠=𝑘)=(1/2)^{𝑘−1}⋅(1−1/2)=2^{−𝑘}\)</span></p>
+<p>循环迭代次数的期望值 <span
+class="math inline">\(𝐸(𝑠)=\sum_{k=1}^\infty𝑘⋅2^{−𝑘}=1/(1−1/2)=2\)</span>
+这意味着平均来说，循环会迭代2次。</p>
+<p>尽管在理论上，循环可能迭代任意多次，但期望值是有限的,为2。</p>
+<h3 id="图灵机tm模型">图灵机（TM）模型</h3>
+<ul>
+<li><p>Tape（带子）：图灵机的带子被均匀地划分为单元格，每个单元格存储一个字符，初始时通常为’#'。</p></li>
+<li><p>Head（读写头）：图灵机的读写头总是对准带子上的某个单元格，可以读取或改写该单元格中的字符。每经过一个时间单位，读写头可以向左或向右移动到相邻的单元格。</p></li>
+<li><p>Alphabet（字母表）：图灵机的字母表定义了带子上可能出现的字符种类，这些字符是有限的。</p></li>
+<li><p>State（状态）：图灵机在执行过程中会处于有限种状态中的一种。每经过一个时间单位，根据当前状态和读写头读取的字符，图灵机可以按照转换函数的规则转向另一种状态。</p></li>
+<li><p>Transition
+Function（转换函数）：转换函数定义了图灵机在给定当前状态和字符时，如何进行状态转换、字符改写以及读写头的移动。</p></li>
+<li><p>Halt
+State（停机状态）：一旦图灵机转入特定的停机状态（通常用’h’表示），它将停止运行。</p></li>
+<li><p>Cost
+Measurement（成本度量）：图灵机从启动到停机所经历的时间单位数目可以用来度量计算的成本，这通常等于读写头累计的移动次数。</p></li>
+</ul>
+<p>举例：increase
+这个实例展示了如何设计一个图灵机来实现二进制非负整数加一的功能。具体步骤如下：</p>
+<ul>
+<li>将带子上表示二进制数的全’1’后缀翻转为全’0’。</li>
+<li>将原最低位的’0’或’#‘翻转为’1’。</li>
+</ul>
+<p><code>(&lt;, 1; 0, L, &lt;)</code>：当图灵机的读写头向左移动（&lt;）并且读取到字符1时，它将执行以下操作：</p>
+<ul>
+<li>将1替换为0（1; 0），</li>
+<li>然后继续向左移动（L），</li>
+<li>并且保持在当前状态（&lt;）。</li>
+</ul>
+<p><code>(&lt;, 0; 1, R, &gt;)</code>：当图灵机的读写头向左移动并且读取到字符0时，它将执行以下操作：</p>
+<ul>
+<li>将0替换为1（0; 1），</li>
+<li>然后向右移动（R），</li>
+<li>并且转换到新的状态（&gt;）。</li>
+</ul>
+<p><code>(&lt;, #; 1, R, &gt;)</code>：当图灵机的读写头向左移动并且读取到空白符号#时，它将执行以下操作：</p>
+<ul>
+<li>将#替换为1（#; 1），</li>
+<li>然后向右移动（R），</li>
+<li>并且转换到新的状态（&gt;）。</li>
+</ul>
+<p><code>(&gt;, 0; 0, R, &gt;)</code>：当图灵机的读写头向右移动并且读取到字符0时，它将执行以下操作：</p>
+<ul>
+<li>保持0不变（0; 0），</li>
+<li>然后继续向右移动（R），</li>
+<li>并且保持在当前状态（&gt;）。</li>
+</ul>
+<p><code>(&gt;, #; #, L, h/&lt;)</code>：当图灵机的读写头向右移动并且读取到空白符号#时，它将执行以下操作：</p>
+<ul>
+<li>保持#不变（#; #），</li>
+<li>然后向左移动（L），</li>
+<li>并且转换到停机状态（h）或者回到初始状态（&lt;），这取决于图灵机的设计。</li>
+</ul>
+<h3 id="随机访问机random-access-machineram模型">随机访问机（Random
+Access Machine，RAM）模型</h3>
+<p>这是计算机科学中用于分析算法效率的一个理论模型。RAM模型抽象了实际计算机的主要特征，以便于研究算法的时间复杂度。以下是RAM模型的一些关键特点：</p>
+<ul>
+<li><p>寄存器（Registers）：RAM模型中有一系列顺序编号的寄存器（R[0],
+R[1], R[2], R[3],
+…），寄存器的数量没有限制，可以通过编号直接访问任意寄存器。</p></li>
+<li><p>指令寄存器（Instruction Register,
+IR）：IR寄存器用于指示当前正在执行哪条指令。</p></li>
+<li><p>基本操作：在RAM模型中，每一基本操作都假设可以在常数时间内完成。这些操作包括：</p>
+<ul>
+<li>赋值操作：R[i] &lt;- c，将常数c赋值给寄存器R[i]。</li>
+<li>寄存器间赋值：R[i] &lt;- R[j]，将寄存器R[j]的值赋给寄存器R[i]。</li>
+<li>间接访问：R[i] &lt;-
+R[R[j]]，通过寄存器R[j]的值作为索引来访问寄存器，并将其值赋给R[i]。</li>
+<li>算术操作：R[i] &lt;- R[j] +
+R[k]，将寄存器R[j]和R[k]的值相加，结果赋给R[i]；以及 R[i] &lt;- R[j] -
+R[k]，将寄存器R[j]和R[k]的值相减，结果赋给R[i]。</li>
+</ul></li>
+<li><p>条件跳转：IF R[i] = 0 GOTO
+#，如果寄存器R[i]的值为0，则跳转到标签#处执行指令；IF R[i] &gt; 0 GOTO
+#，如果寄存器R[i]的值大于0，则跳转到标签#处执行指令。</p></li>
+<li><p>无条件跳转：GOTO #，无条件跳转到标签#处执行指令。</p></li>
+<li><p>停止指令：STOP，结束程序执行。</p></li>
+<li><p>语言特性：</p>
+<ul>
+<li>RAM模型支持直接通过寄存器编号访问寄存器（call-by-rank），并且所有基本操作都假设在常数时间内完成。</li>
+<li>算法的运行时间（T(n)）与算法需要执行的基本操作次数成正比。
+T(n)表示解决规模为n的问题所需的基本操作次数。
+TM和RAM等模型中衡量算法效率时，空间复杂度的影响较小</li>
+</ul></li>
+</ul>
+<p>举例：天花板除法（Ceiling Division） 天花板除法的定义：对于任意正整数
+𝑐 和正整数 𝑑，天花板除法 ⌈𝑐/𝑑⌉ 定义为满足 𝑐≤𝑑⋅𝑥 的最小整数
+𝑥，或者等价地，满足 𝑐−1&lt;𝑑⋅𝑥的最小整数 𝑥。
+算法思路：在RAM模型中实现天花板除法的算法思路是反复从寄存器R[0]中存储的被除数
+𝑐中减去除数 𝑑（存储在R[1]），直到结果小于除数
+𝑑。在这个过程中，统计减法操作的次数 𝑥，这个次数就是天花板除法的结果。
+算法步骤：算法的步骤可能包括初始化寄存器、执行减法操作、更新计数器、检查终止条件等。
+时间复杂度：天花板除法的时间复杂度与减法操作的次数 𝑥成正比，即与 ⌈𝑐/𝑑⌉
+成正比。 算法步骤：</p>
+<p>R[3] &lt;- 1：将常数1赋值给R[3]，用于计数。 GOTO
+4：如果R[0]（被除数c）为0，则跳转到步骤4。 R[2] &lt;- R[2] +
+R[3]：将R[3]的值加到R[2]上，用于统计减法的次数x。 R[0] &lt;- R[0] -
+R[1]：从R[0]中减去R[1]（除数d）。 IF R[0] &gt; 0 GOTO
+2：如果R[0]大于0，跳转回步骤2继续执行。 R[0] &lt;-
+R[2]：将R[2]的值（即x）赋给R[0]。
+STOP：结束程序，R[0]现在存储的是天花板除法的结果。
+算法的时间成本是各条指令执行次数的总和</p>
+<h3 id="渐进记号">渐进记号</h3>
 <ul>
 <li><span class="math inline">\(\Theta\)</span> 记号：<span
 class="math display">\[\Theta(g(n))=\{f(n):存在正常量c_1，c_2和n_0,使得对于所有n\geq
@@ -424,15 +544,17 @@ class="math display">\[\lim\limits_{n\to\infty}\frac{f(n)}{g(n)}=\infty\]</span>
 ### 渐进复杂度 #### <span class="math inline">\(O(1)\)</span>: 常数，含
 <span class="math inline">\(RAM\)</span> 的所有操作 #### <span
 class="math inline">\(O(log_* n)\)</span>: 多重对数函数，<span
-class="math inline">\(log_* n = x\)</span> 表示取 <span
+class="math inline">\(log_* n = x\)</span> 表示连续取 <span
 class="math inline">\(x\)</span> 次对数运算后 <span
 class="math inline">\(n=0\)</span>. 几乎是常数复杂度，应用是逆 <span
-class="math inline">\(Ackermann\)</span>函数 #### <span
-class="math inline">\(O(log n)\)</span>: <span
-class="math inline">\(O(log^c n)=O(log_c n) = O(logn)\)</span>
-这类算法复杂度无限接近于常数 <span class="math display">\[\forall
-c&gt;0,logn=O(n^c)\]</span> #### <span
-class="math inline">\(O(n^c)\)</span>:
+class="math inline">\(Ackermann\)</span>函数</li>
+</ul>
+<p>#### <span class="math inline">\(O(log n)\)</span>: <span
+class="math inline">\(O(log^c n)=O(log_c n) = O(logn)\)</span></p>
+<p>不需要注明底数，因为有换底公式 $log_c a = $</p>
+<p>这类算法复杂度无限接近于常数 <span class="math display">\[\forall
+c&gt;0,logn=O(n^c)\]</span></p>
+<p>#### <span class="math inline">\(O(n^c)\)</span>:
 多项式复杂度算法的效率认为令人满意 #### <span
 class="math inline">\(O(2^n)\)</span>: 指数复杂度算法的效率认为不可接受
 <span class="math inline">\(eg.\)</span> <span
@@ -442,36 +564,182 @@ class="math display">\[\forall S=\{a_1,a_2,...,a_n\}\subset \mathbb Z+,
 t ?\]</span> 最坏的情况下，需要检视每一个子集，共有 <span
 class="math inline">\(2^n\)</span> 个 这类方法只能算作程序，而非算法。
 <span class="math display">\[Subsetsum \quad is \quad
-NP-complete\]</span></li>
-<li><span class="math inline">\(P\)</span> 问题:
-在多项式时间内可解的问题</li>
-<li><span class="math inline">\(NP\)</span>
+NP-complete\]</span> + <span class="math inline">\(P\)</span> 问题:
+在多项式时间内可解的问题 + <span class="math inline">\(NP\)</span>
 问题：在多项式时间内不知道能不能解的问题 <span
-class="math display">\[P\subseteq NP\]</span></li>
-<li><span class="math inline">\(NP-complete\)</span> 问题：<span
+class="math display">\[P\subseteq NP\]</span> + <span
+class="math inline">\(NP-complete\)</span> 问题：<span
 class="math inline">\(NP\)</span> 问题中最难的一个。其他 <span
 class="math inline">\(NP\)</span> 问题都可以在多项式时间内规约成它 ###
-渐进复杂度的层级划分</li>
-<li><span class="math inline">\(O(1)\)</span> :
-对数据结构的基本操作</li>
-<li><span class="math inline">\(O(log_* n)\)</span> ：逆 <span
-class="math inline">\(Ackermann\)</span>函数</li>
-<li><span class="math inline">\(O(logn)\)</span>
-：有序向量的二分查找，堆，词典的查询，插入与删除</li>
-<li><span class="math inline">\(O(n)\)</span> ：数，图的遍历</li>
-<li><span class="math inline">\(O(nlog_*n)\)</span> ： 某些 <span
-class="math inline">\(mst\)</span> 算法</li>
-<li><span class="math inline">\(O(nloglogn)\)</span> :
-某些三角剖分算法</li>
-<li><span class="math inline">\(O(nlogn)\)</span> : 排序，<span
+渐进复杂度的层级划分 + <span class="math inline">\(O(1)\)</span> :
+对数据结构的基本操作 + <span class="math inline">\(O(log_* n)\)</span>
+：逆 <span class="math inline">\(Ackermann\)</span>函数 + <span
+class="math inline">\(O(logn)\)</span>
+：有序向量的二分查找，堆，词典的查询，插入与删除 + <span
+class="math inline">\(O(n)\)</span> ：数，图的遍历 + <span
+class="math inline">\(O(nlog_*n)\)</span> ： 某些 <span
+class="math inline">\(mst\)</span> 算法 + <span
+class="math inline">\(O(nloglogn)\)</span> : 某些三角剖分算法 + <span
+class="math inline">\(O(nlogn)\)</span> : 排序，<span
 class="math inline">\(EU\)</span>，<span
-class="math inline">\(Huffman\)</span> 编码</li>
-<li><span class="math inline">\(O(n^2)\)</span> ： <span
-class="math inline">\(Dijkstra\)</span> 算法</li>
-<li><span class="math inline">\(O(n^3)\)</span> : 矩阵乘法</li>
-<li><span class="math inline">\(O(n^c)\)</span></li>
-<li><span class="math inline">\(O(2^n)\)</span></li>
+class="math inline">\(Huffman\)</span> 编码 + <span
+class="math inline">\(O(n^2)\)</span> ： <span
+class="math inline">\(Dijkstra\)</span> 算法 + <span
+class="math inline">\(O(n^3)\)</span> : 矩阵乘法 + <span
+class="math inline">\(O(n^c)\)</span> + <span
+class="math inline">\(O(2^n)\)</span></p>
+<h3 id="级数">级数</h3>
+<ul>
+<li><p>算数级数：和末项平方同阶 <span
+class="math display">\[T(n)=1+2+...+n=\frac{n(n+1)}{2}=O(n^2)\]</span></p></li>
+<li><p>幂方级数：比幂次高出一阶：</p>
+<p><span class="math display">\[\sum\limits_{k=0}^nk^d\approx \int_0^n
+x^ddx=\frac{n^{d+1}}{d+1} = O(n^{d+1})\]</span></p>
+<p>证明:</p>
+<p>(法1) 二重求和换序：</p>
+<p><span class="math inline">\(eg.\)</span> 由于 <span
+class="math inline">\(k^2=1+3+...+(2k-1)\)</span></p>
+<p><span class="math inline">\(\begin{aligned}\sum_\limits{k=1}^nk^2
+&amp;= \sum\limits_{k=1}^n\sum\limits_{m=1}^k
+(2m-1)=\sum\limits_{m=1}^n\sum\limits_{k=m}^n
+(2m-1)=\sum\limits_{m=1}^n(2m-1)(n-m+1)\\
+&amp;=\sum\limits_{m=1}^n(2mn-n-2m^2+3m-1)=n\sum\limits_{m=1}^n(2m-1)-2\sum\limits_{m=1}^nm^2+\sum\limits_{m=1}^n(3m-1)\\&amp;=\frac{1}{3}[n\sum\limits_{m=1}^n(2m-1)+\sum\limits_{m=1}^n(3m-1)]=\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n\end{aligned}\)</span></p>
+<p>看了一眼，对于高次求和有些复杂</p>
+<p>（法2）伯努利多项式：</p>
+<p>（待补）</p></li>
+<li><p>几何级数：与末项同阶：</p>
+<p><span
+class="math inline">\(T_a(n)=\sum\limits_{k=0}^na^k=a^0+a^1+...+a^n=O(a^n)\)</span></p></li>
+<li><p>收敛级数：</p>
+<p><span class="math inline">\(\sum_\limits{k=2}^n\frac{1}{(k-1)k} =
+\frac{1}{1\cdot2}+\frac{1}{2\cdot3}+...+\frac{1}{n-1\cdot n} =
+1-\frac{1}{n} = O(1)\)</span></p>
+<p><span class="math inline">\(\sum\limits_{k=1}^n\frac{1}{k^2} = 1+
+\frac{1}{2^2}+...+\frac{1}{n^2}&lt;1+ \frac{1}{2^2}+...=\frac{\pi}{6} =
+O(1)\)</span></p></li>
+<li><p>项数有限的发散级数</p>
+<p>调和级数：<span class="math inline">\(h(n)
+=\sum\limits_{k=1}^n\frac{1}{k} = 1+ \frac{1}{2}+...+\frac{1}{n} =
+lnn+\gamma + O(\frac{1}{2n}) = \Theta(logn)\)</span></p>
+<p>对数级数：<span
+class="math inline">\(\sum\limits_{k=1}^nlnk=ln\prod\limits_{k=1}^nk=lnn!\approx(n+0.5)\cdot
+lnn-n=\Theta(n\cdot logn)\)</span></p>
+<p>这里的约等于用到了斯特林公式： <span
+class="math inline">\(n!\approx\sqrt{2\pi n}(\frac{n}{e})^n\)</span></p>
+<p>对数+线性+指数： <span
+class="math inline">\(\sum\limits_{k=1}^nk\cdot logk\approx\int_1^n
+xlnxdx=O(n^2logn)\)</span></p></li>
 </ul>
+<h3 id="迭代复杂度分析">迭代复杂度分析</h3>
+<ul>
+<li><p>迭代+算术级数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) </span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">		<span class="number">01</span>op(<span class="type">const</span> i, <span class="type">const</span> j);</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\sum\limits_{i=0}^{n-1}n=n\cdot
+n=O(n^2)\)</span></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">		<span class="number">01</span>op(<span class="type">const</span> i, <span class="type">const</span> j);</span><br></pre></td></tr></table></figure>
+<p><span
+class="math inline">\(\sum\limits_{i=0}^{n-1}i=\frac{n(n-1)}{2}=O(n^2)\)</span></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i &lt;&lt;= <span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">		<span class="number">01</span>op(<span class="type">const</span> i, <span class="type">const</span> j);</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(1+2+4+\cdots+2^{\lfloor
+log_2(n-1)\rfloor} = 2^{\lceil log_2(n-1)\rceil} -
+1=O(n)\)</span></p></li>
+<li><p>迭代+复杂级数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j += j)</span><br><span class="line">		<span class="number">01</span>op(<span class="type">const</span> i, <span class="type">const</span> j);</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(T(n)=\sum\limits_{i=0}^n\lceil
+log_2i\rceil=O(nlogn)\)</span></p></li>
+</ul>
+<h3 id="封底估算">封底估算</h3>
+<p>凭借在实际计算环境中积累的经验，针对计算过程主要部分进行的此类粗略计算。</p>
+<h3 id="decrease-and-conquer-减而治之">Decrease-and-conquer
+减而治之</h3>
+<p>将一个大规模的问题划分为一个平凡，另一规模缩减的两个子问题，分别求解子问题，再由子问题的解，得到原问题的解。</p>
+<ul>
+<li><p>（linear recursion）线性递归：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sum</span>(<span class="type">int</span> A[], <span class="type">int</span> n) &#123;</span><br><span class="line">	<span class="keyword">return</span> n &lt; <span class="number">1</span> ? <span class="number">0</span> : <span class="built_in">sum</span>(A, n - <span class="number">1</span>) + A[n<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（tracing）递归跟踪：</p>
+<p>绘出计算过程中出现过的所有递归实例，他们各自所需时间之和。</p>
+<p>求解规模为 <span class="math inline">\(n\)</span> 的问题 <span
+class="math inline">\(sum(A,n)\)</span> 需</p>
+<ul>
+<li>递归求解规模为 <span class="math inline">\(n-1\)</span> 的问题 <span
+class="math inline">\(sum(n-1)\)</span></li>
+<li>累加上 <span class="math inline">\(A[n-1]\)</span></li>
+</ul>
+<p>递归方程： <span class="math inline">\(T(n) =
+T(n-1)+O(1)\)</span></p>
+<p>​ <span class="math inline">\(T(0) = O(1)\)</span></p>
+<p>求解 <span class="math inline">\(T(n) =
+T(n-2)+O(2)=T(n-3)+O(3)=\cdots=T(0)+O(n)=O(n)\)</span></p></li>
+</ul>
+<h3 id="divide-and-conquer-分而治之">Divide-and-conquer 分而治之</h3>
+<p>为求解一个大规模的问题，可以将其划分成两个规模大体相当的子问题，分别求解子问题，由子问题的解合并得到原问题的解。</p>
+<h4 id="主方法">主方法：</h4>
+<p>分治策略对应的递归式通常形如： <span class="math inline">\(T(n) = a
+\cdot T(n/b)+O(g(n))\)</span></p>
+<ul>
+<li>若 <span
+class="math inline">\(g(n)=\Omega(n^{log_ba+\epsilon})\)</span>, 则
+<span class="math inline">\(T(n)=\Theta(g(n))\)</span></li>
+</ul>
+<p><span class="math inline">\(eg. quicksort: T(n) = 1\cdot T(n/2) +
+O(n)=O(n)\)</span></p>
+<p>其含义是 ： <span class="math inline">\(g(n)\)</span>
+在渐进意义下的多项式复杂度大于 <span
+class="math inline">\(n^{log_ba}\)</span>, 即要相差一个因子 <span
+class="math inline">\(n^\epsilon(\epsilon &gt;0)\)</span></p>
+<p>而且此式要满足正则条件 <span class="math inline">\(af(n/b)\leq
+cf(n)\)</span></p>
+<ul>
+<li>若 <span class="math inline">\(g(n)=O(n^{log_ba-\epsilon})\)</span>,
+则 <span class="math inline">\(T(n) = \Theta(n^{log_ba})\)</span>
+<ul>
+<li><span class="math inline">\(recursive-sum: T(n) = 2*T(n/2)+O(1) =
+O(n)\)</span></li>
+<li><span class="math inline">\(kd-search: T(n) = 2\cdot
+T(n/4)+O(1)=O(\sqrt n)\)</span></li>
+<li><span class="math inline">\(large-integer-multiplication:T(n)=3\cdot
+T(n/2)+O(n)=O(n^{log_23})\)</span></li>
+</ul></li>
+<li>若<span class="math inline">\(g(n)=\Theta (n^{log_ba}\cdot
+log^k_n)\)</span>, 且 <span class="math inline">\(0\leq k\)</span>, 则
+<span class="math inline">\(T(n)=\Theta (g(n)\cdot
+logn)=\Theta(n^{log_ba}\cdot log^{k+1}n)\)</span>
+<ul>
+<li><span class="math inline">\(binary-search\)</span> : <span
+class="math inline">\(T(n)=1\cdot T(n/2)+O(1)=O(logn)\)</span></li>
+<li><span class="math inline">\(merge-sort:T(n)=2\cdot
+T(n/2)+O(n)=O(n\cdot logn)\)</span></li>
+<li><span class="math inline">\(STL-mergesort:T(n)=2\cdot
+T(n/2)+O(n\cdot logn)=O(n\cdot log^2n)\)</span></li>
+</ul></li>
+</ul>
+<h4 id="主方法的局限性">主方法的局限性</h4>
+<p>通俗来说，若要使用主方法， <span class="math inline">\(f(n)\)</span>
+必须多项式意义上的小于或大于 <span
+class="math inline">\(n^{log_ba}\)</span> (即 <span
+class="math inline">\(f(n)\)</span> )</p>
+<h3 id="总和最大区段">总和最大区段</h3>
+<p>从整数序列中，找出总和最大的区段（有多个时，短者，靠后者优先）</p>
+<h4 id="暴力">暴力</h4>
+<p>枚举所有的 <span class="math inline">\(O(n^2)\)</span>
+个区段,时间复杂度 <span class="math inline">\(O(n^3)\)</span></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">gs_BF</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> gs = A[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> lo = <span class="number">0</span>; lo &lt; n; lo++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> hi = lo; hi &lt; n; hi++) &#123;</span><br><span class="line">            <span class="type">int</span> s = <span class="built_in">sum</span>(A, lo, hi); <span class="comment">// O(n)时间求和</span></span><br><span class="line">            <span class="keyword">if</span> (gs &lt; s) gs = s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> gs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="暴力优化--递增策略">暴力优化--递增策略</h4>
+<p>记忆前面的sum，让求和的时间复杂度降为 <span
+class="math inline">\(O(1)\)</span>, 总时间复杂度 <span
+class="math inline">\(O(n^2)\)</span></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">gs_BF</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> gs = A[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> lo = <span class="number">0</span>; lo &lt; n; lo++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> s = <span class="number">0</span>, hi = lo; hi &lt; n; hi++) &#123;</span><br><span class="line">            s += A[hi];</span><br><span class="line">            <span class="keyword">if</span> (gs &lt; s) gs = s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> gs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分而治之">分而治之</h4>
+<p>将序列分成两个大小近似的分段，总和最大区段要么是左边区段中的总和最大区段，要么是右边区段的总和最大区段，要么是跨越左右的一个连续的区段。左右区段中的总和最大区段由递归求出，求跨越左右的区段的时间复杂度为
+<span class="math inline">\(O(n)\)</span></p>
+<p>由主方法求出</p>
+<p><span class="math display">\[T(n)=2\cdot T(n/2) + O(n) =
+O(nlogn)\]</span></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">gs_DC</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> lo, <span class="type">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hi - lo &lt; <span class="number">2</span>) <span class="keyword">return</span> A[lo];</span><br><span class="line">    <span class="type">int</span> mid = (hi + lo) / <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> gsL = A[mid - <span class="number">1</span>], sL = <span class="number">0</span>, i = mid;</span><br><span class="line">    <span class="keyword">while</span> (lo &lt; i--)</span><br><span class="line">    	<span class="keyword">if</span> (gsL &lt; (sL += A[i])) gsL = sL;</span><br><span class="line">    <span class="type">int</span> gsR = A[mid], sR = <span class="number">0</span>, j = mid - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (++j &lt; hi) </span><br><span class="line">        <span class="keyword">if</span> (gsR &lt; (sR += A[j])) gsR = sR;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span>(gsL + gsR, <span class="built_in">max</span>(<span class="built_in">gs_DC</span>(A, lo, mid), <span class="built_in">gs_DC</span>(A, mid, hi)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="减而治之">减而治之</h4>
+<p>总和最大区段一定不含有最短的总和非正的后缀。</p>
+<p>简单的考虑，加上一个总和非正的后缀，区段总和肯定减少。最短的是为了减治所用。倒序遍历，找到一个最短的总和非正的后缀就将其减去。这样保证遍历的一定是一个后缀。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">gs_LS</span><span class="params">( <span class="type">int</span> A[], <span class="type">int</span> n )</span> </span>&#123; <span class="comment">//Linear Scan: O(n)</span></span><br><span class="line">    <span class="type">int</span> gs = A[<span class="number">0</span>], s = <span class="number">0</span>, i = n;</span><br><span class="line">    <span class="keyword">while</span> ( <span class="number">0</span> &lt; i-- ) &#123; <span class="comment">//在当前区间内</span></span><br><span class="line">        s += A[i]; <span class="comment">//递增地累计总和</span></span><br><span class="line">        <span class="keyword">if</span> ( gs &lt; s ) gs = s; <span class="comment">//并择优、更新</span></span><br><span class="line">        <span class="keyword">if</span> ( s &lt;= <span class="number">0</span> ) s = <span class="number">0</span>; <span class="comment">//剪除非正和后缀</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> gs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>数据结构</tag>
@@ -480,15 +748,323 @@ class="math inline">\(Dijkstra\)</span> 算法</li>
   <entry>
     <title>leetcode3.5</title>
     <url>/2025/03/05/leetcode3-5/</url>
-    <content><![CDATA[<p><a class="link"   href="https://leetcode.cn/problems/intersection-of-two-linked-lists/?envType=study-plan-v2&amp;envId=top-100-liked" >160. 相交链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
+    <content><![CDATA[<p><a class="link" 
+ href="https://leetcode.cn/problems/intersection-of-two-linked-lists/?envType=study-plan-v2&amp;envId=top-100-liked" >160.
+相交链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
 <p>用map存一遍链表A中的节点，看链表B中有无相同即可</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;ListNode *, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">while</span> (headA) &#123;</span><br><span class="line">            mp[headA] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (!headA-&gt;next) <span class="keyword">break</span>;</span><br><span class="line">            headA = headA-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (headB) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mp.<span class="built_in">count</span>(headB)) <span class="keyword">return</span> headB;</span><br><span class="line">            <span class="keyword">if</span> (!headB-&gt;next) <span class="keyword">break</span>;</span><br><span class="line">            headB = headB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>双链表的方法比较巧妙，平时没有怎么接触过</p>
 <p>若要同时移动两个指针，当两链表节点数不同时，很显然不可能走到公共节点，不过相应的，如果两个指针在某一刻走到相同后缀数量的节点时，就可以同步移动，找出是否有公共节点。所以可以让指向A链表的指针为NULL时指向B链表的表头，指向B链表的指针为NULL时指向A链表的表头，补偿较少节点数的链表指针，多走一个循环，就可以满足条件。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode *p = headA, *q = headB;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (headA == headB) <span class="keyword">return</span> headA;</span><br><span class="line">            <span class="keyword">if</span> (!headA-&gt;next &amp;&amp; !headB-&gt;next) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">            <span class="keyword">if</span> (!headA-&gt;next) headA = q;</span><br><span class="line">            <span class="keyword">else</span> headA = headA-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (!headB-&gt;next) headB = p;</span><br><span class="line">            <span class="keyword">else</span> headB = headB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><a class="link" 
+ href="https://leetcode.cn/problems/reverse-linked-list/?envType=study-plan-v2&amp;envId=top-100-liked" >206.
+反转链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
+<p>我一直对于这些需要边界处理的题感到头疼。</p>
+<p>需要讨论一下链表节点为0,1,2个的情况。大于等于3时可以一起处理</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || (!head-&gt;next)) <span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">if</span> (!head-&gt;next-&gt;next) &#123;</span><br><span class="line">            ListNode *p = head, *q = head-&gt;next;</span><br><span class="line">            head-&gt;next-&gt;next = head;</span><br><span class="line">            p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">            <span class="keyword">return</span> q;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *prior = head, *now = head;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">        prior-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(head-&gt;next) &#123;</span><br><span class="line">            now = head;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            now-&gt;next = prior;</span><br><span class="line">            prior = now;</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = prior;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数字图像处理ch3</title>
+    <url>/2025/03/07/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86ch3/</url>
+    <content><![CDATA[<h3 id="空间滤波基础">空间滤波基础</h3>
+<p>滤波：通过/拒绝一定的频率分量</p>
+<p>噪声一般为高频，使用低通滤波器，但是也会滤掉一些图像的高频分量，导致图像模糊。</p>
+<p>空间滤波器由</p>
+<ul>
+<li>一个邻域（典型的是一个边长为奇数的小矩形）</li>
+<li>对改邻域包围的图像像素执行的预定义操作</li>
+</ul>
+<p>组成。</p>
+<p>例：使用一个3x3的小矩形，从图像的左上角开始移动。第 <span
+class="math inline">\(i\)</span> 行第 <span
+class="math inline">\(j\)</span> 列的矩阵权重是 <span
+class="math inline">\(w_{ij}\)</span></p>
+<p>当其中心点移动到一个位置<span
+class="math inline">\((i,j)\)</span>时，将其中心点的图像的灰度值修改成响应
+<span class="math inline">\(\sum w\)</span></p>
+<p>典型的低通滤波矩阵</p>
+<p><span class="math display">\[\frac{1}{9}\quad\begin{bmatrix}
+1&amp;1&amp;1\\
+1&amp;1&amp;1\\
+1&amp;1&amp;1\\
+\end{bmatrix}\]</span></p>
+<p>经典的均值滤波器</p>
+<p><span class="math display">\[\frac{1}{4}\quad\begin{bmatrix}
+0&amp;1&amp;0\\
+1&amp;0&amp;1\\
+0&amp;1&amp;0\\
+\end{bmatrix}\]</span></p>
+<p>4邻域滤波器</p>
+<p><span class="math display">\[\frac{1}{8}\quad\begin{bmatrix}
+1&amp;1&amp;1\\
+1&amp;0&amp;1\\
+1&amp;1&amp;1\\
+\end{bmatrix}\]</span></p>
+<p>8邻域滤波器</p>
+<p><span class="math display">\[\frac{1}{16}\quad\begin{bmatrix}
+1&amp;2&amp;1\\
+2&amp;4&amp;2\\
+1&amp;2&amp;1\\
+\end{bmatrix}\]</span></p>
+<p>高斯滤波器</p>
+<p>可以设置一个阈值，高于阈值的点才进行滤波，在一定程度上限制了模糊。</p>
+<p>median filter</p>
+<ul>
+<li>one dimension step signal ： no effect</li>
+<li>one dimension ramp signal : no effect</li>
+<li>one dimension triangle signal : has effect</li>
+</ul>
+<p>max filter : reduces pepper noise(dark)</p>
+<p>min filter : reduces salt noise(bright)</p>
+<p>####平滑空间滤波器</p>
+<p>用于模糊处理和降低噪声。在图像域中改变图像的灰度值</p>
+<p>foundation:</p>
+<p>first order derivative:</p>
+<p><span class="math display">\[\frac{\partial f}{\partial x} = f(x+1) -
+f(x)\]</span></p>
+<p>second order derivative</p>
+<p><span class="math display">\[\frac{\partial^2 f}{\partial x^2} =
+f(x+1)+f(x-1)-2f(x)\]</span></p>
+<p>gradient operators's further approximation</p>
+<p><span class="math display">\[G(x,y)=\]</span></p>
+<p>laplacian</p>
+]]></content>
+      <tags>
+        <tag>数字图像处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>光通信原理ch3</title>
+    <url>/2025/03/07/%E5%85%89%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86ch3/</url>
+    <content><![CDATA[<h3 id="随机过程的基本概念">随机过程的基本概念</h3>
+<p>随机过程：随时间随机变化的过程，全部样本函数 <span
+class="math inline">\(\xi_i(t)\)</span> 的集合，随机变量 <span
+class="math inline">\(\xi(t_i)\)</span> 的集合</p>
+<p>样本函数 <span class="math inline">\(\xi_i(t)\)</span>：一次实现</p>
+<p>随机变量 <span class="math inline">\(\xi(t_i)\)</span></p>
+<p>从随机变量角度来看 <span
+class="math inline">\(\xi(t_i)=\{\xi_1(t_i),\xi_2(t2),\cdots,\xi_n(t_i)\}\)</span></p>
+<ul>
+<li>统计特性：
+<ul>
+<li>概率分布</li>
+<li>数字特征</li>
+</ul></li>
+<li>时间特性：
+<ul>
+<li>时域</li>
+<li>频域</li>
+</ul></li>
+</ul>
+<p>随机过程的分布函数：</p>
+<ul>
+<li><p>一维分布函数 -- 描述孤立时刻的统计特性</p>
+<p><span class="math inline">\(F_i(x_i,t_i) = P\{\xi(t_i)\leq
+x_i\}\)</span></p>
+<p><span class="math inline">\(f=\frac{\partial F(x_1,t_1)}{\partial
+x_i}\)</span></p></li>
+<li><p>二维分布函数</p>
+<p><span class="math inline">\(F(x_1,x_2,t_1,t_2)\)</span></p></li>
+<li><p>n维分布函数</p></li>
+</ul>
+<h4 id="随机过程的数字特征">随机过程的数字特征</h4>
+<ul>
+<li><p>均值 -- 摆动中心</p>
+<p><span class="math inline">\(E(\xi(t))=\int_{-\infty}^\infty
+xf_1(x,t)dx=a(t)\)</span> 是一个对于 <span
+class="math inline">\(t\)</span> 的确定函数</p></li>
+<li><p>方差 -- 偏离程度</p>
+<p><span
+class="math inline">\(D[\xi(t)]=E\{[\xi(t)-a(t)]^2\}=E[\xi^2(t)]-[a(t)^2]=\sigma^2(t)\)</span></p></li>
+<li><p>自相关函数 -- 同一过程的关联程度</p>
+<p><span
+class="math inline">\(R(t_1,t_2)=E[\xi(t_1)\xi(t_2)]\)</span></p>
+<p>令 <span class="math inline">\(\tau=t_2-t_1\)</span>, 则有 <span
+class="math inline">\(R(t_1,t_2)=R(t_1,t_1+\tau)\)</span></p></li>
+<li><p>互相关函数 -- 两个过程的关联程度</p>
+<p><span class="math inline">\(R_{\xi\eta} =
+E[\xi(t_1)\eta(t_2)]\)</span></p></li>
+</ul>
+<h3 id="平稳随机过程">平稳随机过程</h3>
+<ul>
+<li><p>狭义平稳：</p>
+<p>随机过程的统计特性与时间起点无关</p>
+<ul>
+<li>一维分布与时间 <span class="math inline">\(t\)</span> 无关</li>
+<li>二维分布只与时间间隔 <span class="math inline">\(\tau\)</span>
+有关</li>
+</ul></li>
+<li><p>广义平稳：</p>
+<ul>
+<li>均值与时间无关</li>
+<li>相关函数只与时间间隔有关</li>
+</ul></li>
+</ul>
+<h4 id="各态历经性遍历性">各态历经性（遍历性）</h4>
+<p>统计平均值=时间平均值</p>
+<p>含义：任一样本经历了平稳过程的所有可能状态</p>
+<p>遍历过程一定是平稳过程，平稳过程不一定是遍历过程</p>
+<p><span class="math inline">\(E[g(x)] = \int_{-\infty}^\infty
+g(x)f(x)dx\)</span></p>
+<h4 id="实平稳过程的自相关函数">实平稳过程的自相关函数</h4>
+<p><span class="math inline">\(R(\tau)=E[\xi(t)\xi(t+\tau)]\)</span></p>
+<p>性质：</p>
+<ul>
+<li><p><span class="math inline">\(R(0)=E[\xi^2(t)]=S\)</span>
+--平均功率</p></li>
+<li><p><span class="math inline">\(R(\infty)=E^2[\xi(t)]=a^2\)</span>
+--直流功率 （此时认为 <span class="math inline">\(\xi(t)\)</span> 和
+<span class="math inline">\(\xi(t+\tau)\)</span> 相互独立）</p></li>
+<li><p><span class="math inline">\(R(0)-R(\infty) =\sigma^2\)</span> --
+交流功率</p></li>
+<li><p><span class="math inline">\(R(\tau)=R(-\tau)\)</span>
+--偶函数</p></li>
+<li><p><span class="math inline">\(|R(\tau)|\leq R(0)\)</span>
+--上界</p></li>
+</ul>
+<h4 id="平稳过程的功率谱密度">平稳过程的功率谱密度</h4>
+<ul>
+<li><p>样本的功率谱</p>
+<p><span class="math inline">\(P_x(f)=\lim\limits_{T\to\infty}
+\frac{|X_T(f)|^2}{T}\)</span></p></li>
+<li><p>过程的功率谱</p>
+<p><span
+class="math inline">\(P_\xi(f)=E[p_x(f)]=\lim\limits_{T\to\infty}
+\frac{E|X_T(f)|^2}{T}\)</span></p></li>
+</ul>
+<p>平稳过程的功率谱密度与自相关函数是一对傅里叶变换</p>
+<p><span class="math inline">\(P_\xi(\omega)=\int_{-\infty}^\infty
+R(\tau)e^{-j\omega t}d\tau\)</span></p>
+<p><span class="math inline">\(R(0)=\frac{1}{2\pi}\int_{-\infty}^\infty
+P_\xi(\omega)d\omega=\int_{-\infty}^\infty P_\xi(f)df\)</span></p>
+<p>PSD性质：</p>
+<ul>
+<li><p>遍历过程任一样本的PSD=过程的PSD</p></li>
+<li><p>非负性</p></li>
+<li><p>偶函数</p></li>
+</ul>
+<h3 id="高斯随机过程">高斯随机过程</h3>
+<p>定义：任意n维概率密度函数服从正态分布</p>
+<p>性质：</p>
+<ul>
+<li>若广义平稳，则狭义平稳</li>
+<li>若互不相关，则统计独立</li>
+<li>若干个高斯过程的代数和仍是高斯型</li>
+<li>高斯过程-线性变换-高斯过程</li>
+</ul>
+<p>一维概率密度函数：<span
+class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi\sigma}}exp(-\frac{(x-a)^2}{2\sigma^2})\)</span></p>
+<p>记为 <span class="math inline">\(N(a,\sigma^2)\)</span>
+a分布中心，<span class="math inline">\(\sigma\)</span> 集中程度</p>
+<p>Matlab中 <span class="math inline">\(randn(0,p)\)</span></p>
+<p>性质：</p>
+<ul>
+<li>关于直线 <span class="math inline">\(x=a\)</span> 对称</li>
+<li><span class="math inline">\(\int\)</span></li>
+</ul>
+<h4 id="正态分布">正态分布</h4>
+<p>正态分布函数： <span class="math inline">\(F(b)=P(x\leq
+b)=\int_{-\infty}^b\frac{1}{\sqrt{2\pi
+\sigma}}exp[-\frac{(x-a)^2}{2\sigma^2}]dx\)</span></p>
+<p>误差函数： <span
+class="math inline">\(erf(x)=\frac{2}{\sqrt\pi}\int_0^xe^{-t^2}dt\)</span></p>
+<p>误差函数是自变量的递增函数 <span
+class="math inline">\(erf(0)=0,erf(\infty)=1\)</span></p>
+<p>补误差函数：<span
+class="math inline">\(erfc(x)=\frac{2}{\sqrt\pi}\int_x^{\infty}e^{-t^2}dt\)</span></p>
+<h4 id="高斯随机变量的置信率">高斯随机变量的置信率</h4>
+<h4 id="确知信号通过线性系统">确知信号通过线性系统</h4>
+<p>设 <span
+class="math inline">\(\xi_i(t)\to^{h(t)}\xi_o(t)\)</span></p>
+<p>则 <span
+class="math inline">\(\xi_o(t)=\xi_i(t)*h(t)=\int_{-\infty}^\infty\xi_i(t)h(t-\tau)d\tau\)</span></p>
+<h3 id="噪声">噪声</h3>
+<h4 id="白噪声">白噪声</h4>
+<p>白噪声--理想的宽带过程</p>
+<p>其功率谱密度均匀分布在整个频率范围内 <span
+class="math inline">\(P_\xi(f)=\frac{n_0}{2}, n_0(W/HZ)\)</span></p>
+<p><span
+class="math inline">\(R(\tau)=\frac{n_0}{2}\delta(\tau)\)</span></p>
+<p>平均功率 <span class="math inline">\(R(0)=\infty\)</span>,
+实际不可能出现这种理想噪声</p>
+<h4 id="高斯白噪声">高斯白噪声</h4>
+<p>概率分布服从高斯分布的白噪声</p>
+<h4 id="带限白噪声">带限白噪声</h4>
+<p>白噪声通过带宽有限的信道或滤波器的情形</p>
+<ul>
+<li>通过LPF--低通白噪声</li>
+<li>通过BPF--带通白噪声</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>光通信原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode3.7</title>
+    <url>/2025/03/07/leetcode3-7/</url>
+    <content><![CDATA[<p><a class="link" 
+ href="https://leetcode.cn/problems/palindrome-linked-list/description/?envType=study-plan-v2&amp;envId=top-100-liked" >234.
+回文链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
+<p>很简单的可以想出时间复杂度和空间复杂度都为 <span
+class="math inline">\(O(n)\)</span> 的算法</p>
+<p>如果要求空间复杂度为 <span
+class="math inline">\(O(1)\)</span>，则需要使用到双指针。</p>
+<p>使用两个快慢指针，快指针走两步慢指针走一步，当快指针走到链表尾部时，慢指针正好走到链表的中间。将后半链表翻转，即可判断是否回文</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || (!head-&gt;next)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (head-&gt;next-&gt;next == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val == head-&gt;next-&gt;val) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">       ListNode *p = head, *q = head;</span><br><span class="line">       <span class="type">int</span> f = <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">while</span>(p) &#123;</span><br><span class="line">            <span class="keyword">if</span> (f % <span class="number">2</span>) q = q-&gt;next;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            f = <span class="number">1</span> - f;</span><br><span class="line">       &#125;</span><br><span class="line">       q=<span class="built_in">Link_reverse</span>(q);</span><br><span class="line">       p = head;</span><br><span class="line">      <span class="comment">// cout &lt;&lt; p-&gt;val &lt;&lt; &quot; &quot; &lt;&lt; q-&gt;val &lt;&lt; endl;</span></span><br><span class="line">       <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>||q==<span class="literal">nullptr</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;val != q-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;next == q-&gt;next || p-&gt;next == q) <span class="keyword">break</span>;</span><br><span class="line">        p = p-&gt;next, q = q-&gt;next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="function">ListNode* <span class="title">Link_reverse</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || (!head-&gt;next)) <span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">if</span> (!head-&gt;next-&gt;next) &#123;</span><br><span class="line">            ListNode *p = head, *q = head-&gt;next;</span><br><span class="line">            head-&gt;next-&gt;next = head;</span><br><span class="line">            p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">            <span class="keyword">return</span> q;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *prior = head, *now = head;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">        prior-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(head-&gt;next) &#123;</span><br><span class="line">            now = head;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            now-&gt;next = prior;</span><br><span class="line">            prior = now;</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = prior;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深度学习-0</title>
+    <url>/2025/03/19/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-0/</url>
+    <content><![CDATA[<ul>
+<li><p>安装miniconda</p></li>
+<li><p>将conda和pip的软件源修改成为清华源</p></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda  config  --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda  config  --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda  config  --set show_channel_urls yes</span><br><span class="line"></span><br><span class="line">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建conda环境并激活</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create --name d2l python=3.9 -y</span><br><span class="line">conda activate d2l</span><br></pre></td></tr></table></figure>
+<p>可以看到conda命令行开头从 (base) 变成了 (d2l)</p>
+<ul>
+<li>安装深度学习框架和d2l软件包</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install torch==1.12.0</span><br><span class="line">pip install torchvision==0.13.0</span><br><span class="line">pip install d2l==0.17.6</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下载D2l Notebook</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /d E:/d2l-zh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开jupyter笔记本</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure>
+<p>可以打开<code>https://localhost:8888</code>
+查看，token在prompt里直接复制</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据结构ch2</title>
+    <url>/2025/03/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84ch2/</url>
+    <content><![CDATA[<h3 id="abstract-data-type-vs-data-structure">Abstract Data Type vs Data
+Structure</h3>
+<p>抽象数据类型=数据模型+定义在该模型上的一组操作</p>
+<p>数据结构=给予某种特定语言，实行ADT的一整套算法</p>
+<h3 id="向量">向量</h3>
+<p>向量是数组的抽象与泛化，由一组元素按线性次序封装而成</p>
+<p>各元素与 <span class="math inline">\([0,n)\)</span> 内的秩 <span
+class="math inline">\(rank\)</span> 一一对应</p>
+<p>操作，管理维护更加简化</p>
+]]></content>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
 </search>

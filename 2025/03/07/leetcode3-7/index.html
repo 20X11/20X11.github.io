@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            leetcode3.7 |
         
         misasteria&#39;s blog
     </title>
@@ -191,7 +191,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        Hello World
+                        leetcode3.7
                     </div>
                 
 
@@ -219,17 +219,26 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-06-17 18:26:18</span>
+                <span class="datetime">2025-03-07 23:43:30</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Jun 17 2024 18:26:18 GMT+0800">2024-06-17 18:26:18</span>
+                <span class="datetime" data-updated="Fri Mar 07 2025 23:47:12 GMT+0800">2025-03-07 23:47:12</span>
             </span>
         
 
         
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/">leetcode每日一题</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
@@ -249,35 +258,29 @@
                 <div class="post-content keep-markdown-body ">
                     
 
-                    <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very
-first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or
-you can ask me on <a class="link" 
- target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a class="link" 
- target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+                    <p><a class="link" 
+ target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-linked-list/description/?envType=study-plan-v2&amp;envId=top-100-liked" >234.
+回文链表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
+<p>很简单的可以想出时间复杂度和空间复杂度都为 <span
+class="math inline">\(O(n)\)</span> 的算法</p>
+<p>如果要求空间复杂度为 <span
+class="math inline">\(O(1)\)</span>，则需要使用到双指针。</p>
+<p>使用两个快慢指针，快指针走两步慢指针走一步，当快指针走到链表尾部时，慢指针正好走到链表的中间。将后半链表翻转，即可判断是否回文</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || (!head-&gt;next)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (head-&gt;next-&gt;next == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val == head-&gt;next-&gt;val) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">       ListNode *p = head, *q = head;</span><br><span class="line">       <span class="type">int</span> f = <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">while</span>(p) &#123;</span><br><span class="line">            <span class="keyword">if</span> (f % <span class="number">2</span>) q = q-&gt;next;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            f = <span class="number">1</span> - f;</span><br><span class="line">       &#125;</span><br><span class="line">       q=<span class="built_in">Link_reverse</span>(q);</span><br><span class="line">       p = head;</span><br><span class="line">      <span class="comment">// cout &lt;&lt; p-&gt;val &lt;&lt; &quot; &quot; &lt;&lt; q-&gt;val &lt;&lt; endl;</span></span><br><span class="line">       <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p==<span class="literal">nullptr</span>||q==<span class="literal">nullptr</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;val != q-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;next == q-&gt;next || p-&gt;next == q) <span class="keyword">break</span>;</span><br><span class="line">        p = p-&gt;next, q = q-&gt;next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="function">ListNode* <span class="title">Link_reverse</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || (!head-&gt;next)) <span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">if</span> (!head-&gt;next-&gt;next) &#123;</span><br><span class="line">            ListNode *p = head, *q = head-&gt;next;</span><br><span class="line">            head-&gt;next-&gt;next = head;</span><br><span class="line">            p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">            <span class="keyword">return</span> q;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *prior = head, *now = head;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">        prior-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(head-&gt;next) &#123;</span><br><span class="line">            now = head;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            now-&gt;next = prior;</span><br><span class="line">            prior = now;</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = prior;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
                 </div>
                 
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/">leetcode每日一题</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -293,19 +296,35 @@ you can ask me on <a class="link"
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/06/17/csapp-datalab/"
-                                   title="csapp_datalab"
+                                   href="/2025/03/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84ch2/"
+                                   title="数据结构ch2"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">csapp_datalab</span>
+                                        <span class="post-nav-title-item text-ellipsis">数据结构ch2</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
                             </div>
                         
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/03/07/%E5%85%89%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86ch3/"
+                                   title="光通信原理ch3"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">光通信原理ch3</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
                         
                     </div>
                 
@@ -327,7 +346,7 @@ you can ask me on <a class="link"
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
         <!-- use hexo-blog-encrypt -->
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        
     </div>
 </div>
 
@@ -481,7 +500,7 @@ you can ask me on <a class="link"
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
         <!-- use hexo-blog-encrypt -->
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        
     </div>
 </div>
 
